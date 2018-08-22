@@ -9,11 +9,19 @@ import { rhythm } from '../utils/typography'
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const siteDescription = get(
+      this,
+      'props.data.site.siteMetadata.description'
+    )
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
 
     return (
       <div>
-        <Helmet title={siteTitle} />
+        <Helmet 
+          htmlAttributes={{ lang: 'en' }}
+          title={siteTitle} 
+          meta={[{ name: 'description', content: siteDescription }]}
+          />
         <Bio />
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
