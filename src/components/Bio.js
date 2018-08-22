@@ -53,7 +53,10 @@ class Bio extends React.Component {
       direction: null,
       hover: false,
     }
-    window.addEventListener('mousemove', this.mouseMove)
+    // Hack, get us past the build stage.
+    if(typeof window !== "undefined") {
+      window.addEventListener('mousemove', this.mouseMove)
+    }
   }
 
   mouseMove = event => {
