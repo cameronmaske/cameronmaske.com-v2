@@ -1,10 +1,15 @@
 ---
-title: Running Docker on OSX
+title: How To Run Docker On OSX With NSF (And Avoid Docker for Mac Slow Performance)
 date: 2017-01-01
 published: true
-topic: DOCKER
-intro: In this post, I'll cover the best way I've found to run Docker in my local OSX development environment.
+tags: DOCKER
+summary_image: img/cards/docker-for-mac.png
+twitter_title: How To Run Docker On OSX With NSF (And Avoid Docker for Mac Slow Performance)
+twitter_description: This guide show you how to overcome Docker For Mac's slow filesystem performance, by using Docker Toolbox and docker-machine-nfs (~20x faster).
+description: This guide show you how to overcome Docker For Mac's slow filesystem performance, by using Docker Toolbox and docker-machine-nfs (~20x faster).
+intro: todo
 ---
+In this post, I'll cover the best way I've found to run Docker in my local OSX development environment.
 
 This post won't cover (and has covered in much better detail) [what Docker is](https://www.safaribooksonline.com/library/view/introduction-to-docker/9781491916179/), or [the benefits](https://www.oreilly.com/ideas/what-containers-can-do-for-you) of using it.
 
@@ -28,7 +33,7 @@ This will ensure the following packages are installed...
 * Docker Compose
 * Docker Machine
 
-```
+```bash
 $ docker --version
 Docker version 1.12.5, build 6b644ec
 $ docker-machine --version
@@ -48,7 +53,6 @@ Here are the two choices to make.
 
 With those values chosen, modify then run the following command...
 
-
 ```bash
 docker-machine create -d virtualbox \
     --virtualbox-boot2docker-url=https://github.com/boot2docker/boot2docker/releases/download/v1.12.5/boot2docker.iso \
@@ -64,13 +68,16 @@ In order to use NFS on your freshly created VM, you'll need to install a 3rd par
 
 You have two installation options, either curl or via brew. Your choice.
 
-    curl https://raw.githubusercontent.com/adlogix/docker-machine-nfs/master/docker-machine-nfs.sh | sudo tee /usr/local/bin/docker-machine-nfs > /dev/null && \
-        sudo chmod +x /usr/local/bin/docker-machine-nfs
+```bash
+curl https://raw.githubusercontent.com/adlogix/docker-machine-nfs/master/docker-machine-nfs.sh | sudo tee /usr/local/bin/docker-machine-nfs > /dev/null && \
+    sudo chmod +x /usr/local/bin/docker-machine-nfs
+```
 
 or
 
-    brew install docker-machine-nfs
-
+```bash
+brew install docker-machine-nfs
+```
 
 Next, we'll enabled NFS by running the following command. As before, modify the command below according to your setup.
 
@@ -78,9 +85,11 @@ Next, we'll enabled NFS by running the following command. As before, modify the 
 
 With the folder chosen, modify then run the following command...
 
-    docker-machine-nfs default \
-        --mount-opts="noacl,async,nolock,vers=3,udp,noatime,actimeo=2" \
-        --shared-folder="/Users/cameronmaske/Development/repos"
+```bash
+docker-machine-nfs default \
+    --mount-opts="noacl,async,nolock,vers=3,udp,noatime,actimeo=2" \
+    --shared-folder="/Users/cameronmaske/Development/repos"
+```
 
 The `mount-opts` settings ensure any watch file changes play nicely with any front end builders (i.e. gulp, grunt or webpack).
 
@@ -92,29 +101,32 @@ In order to run docker, you'll need to do two things.
 
 This is accomplished by the following commands...
 
-
-    $ docker-machine start default
-    $ eval $(docker-machine env default)
+```bash
+$ docker-machine start default
+$ eval $(docker-machine env default)
+```
 
 
 I use ZSH as my shell. My normal workflow involves running an alias command [`dm-up`](https://github.com/cameronmaske/dotfiles/blob/61f5657b71ef3f05337dcfe5fa604bcb535238c7/.zsh/functions#L170), which boots the VM and set the resulting environment variables. Any other terminals opened check if the [VM is running](https://github.com/cameronmaske/dotfiles/blob/61f5657b71ef3f05337dcfe5fa604bcb535238c7/.zsh/functions#L162) and if so set the environment variables automatically.
 
 [ZSH functions](https://github.com/cameronmaske/dotfiles/blob/61f5657b71ef3f05337dcfe5fa604bcb535238c7/.zsh/functions#L160).
 
-    ### Docker Machine ###
-    # Check if `default` is running, if so, set env.
-    if [ $(docker-machine status default) = "Running" ]; then
-        eval $(docker-machine env default);
-    fi;
+```bash
+### Docker Machine ###
+# Check if `default` is running, if so, set env.
+if [ $(docker-machine status default) = "Running" ]; then
+    eval $(docker-machine env default);
+fi;
 
-    function dm-up() {
-        docker-machine start default;
-        eval (docker-machine env default);
-    }
+function dm-up() {
+    docker-machine start default;
+    eval (docker-machine env default);
+}
 
-    function dm-stop() {
-        docker-machine stop default;
-    }
+function dm-stop() {
+    docker-machine stop default;
+}
+```
 
 
 ### Step 5. Setting up `localdocker`.
@@ -126,7 +138,9 @@ Open `/etc/hosts` with your terminal of choice (will need sudo access).
 
 Add the following line.
 
-    192.168.99.100 localdocker
+```
+192.168.99.100 localdocker
+```
 
 ### Congratulations!
 
@@ -139,34 +153,40 @@ On my 8GB 2013 Macbook Air, I benchmarked the file system's performance of this 
 
 I started with a control test of a native non-shared volume in a container.
 
-    $ docker run --rm -it -w /tmp/ alpine /bin/sh
-    $ time dd if=/dev/zero of=speedtest bs=1024 count=100000
-    100000+0 records in
-    100000+0 records out
-    real    0m 0.24s
-    user    0m 0.01s
-    sys 0m 0.22s
+```bash
+$ docker run --rm -it -w /tmp/ alpine /bin/sh
+$ time dd if=/dev/zero of=speedtest bs=1024 count=100000
+100000+0 records in
+100000+0 records out
+real    0m 0.24s
+user    0m 0.01s
+sys 0m 0.22s
+```
 
 Then with a shared volume test with Docker Machine and NFS enabled (~10x slower than native).
 
-    $ docker run --rm -it -v $PWD:$PWD -w $PWD alpine /bin/sh
-    $ time dd if=/dev/zero of=speedtest bs=1024 count=100000
-    100000
-    100000+0 records in
-    100000+0 records out
-    real    0m 2.36s
-    user    0m 0.00s
-    sys 0m 0.18s
+```bash
+$ docker run --rm -it -v $PWD:$PWD -w $PWD alpine /bin/sh
+$ time dd if=/dev/zero of=speedtest bs=1024 count=100000
+100000
+100000+0 records in
+100000+0 records out
+real    0m 2.36s
+user    0m 0.00s
+sys 0m 0.18s
+```
 
 Then a shared volume test with Docker For Mac (~190x slower than native).
 
-    $ docker run --rm -it -v $PWD:$PWD -w $PWD alpine /bin/sh
-    $ time dd if=/dev/zero of=speedtest bs=1024 count=100000
-    100000+0 records in
-    100000+0 records out
-    real    0m 45.11s
-    user    0m 0.19s
-    sys 0m 1.91s
+```bash
+$ docker run --rm -it -v $PWD:$PWD -w $PWD alpine /bin/sh
+$ time dd if=/dev/zero of=speedtest bs=1024 count=100000
+100000+0 records in
+100000+0 records out
+real    0m 45.11s
+user    0m 0.19s
+sys 0m 1.91s
+```
 
 There is still room for improvement, as we aren't at native file system performance yet, but the result is still usable.
 
