@@ -76,12 +76,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
-        headers: {
-          '/*': [
-            "Content-Security-Policy: default-src 'none' ; script-src 'self' 'unsafe-inline' www.google-analytics.com stats.g.doubleclick.net https://stats.g.doubleclick.net http://www.google-analytics.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' ; img-src 'self' data: www.google-analytics.com stats.g.doubleclick.net https://stats.g.doubleclick.net http://www.google-analytics.com https://www.google-analytics.com; font-src 'self' ; manifest-src 'self' ; upgrade-insecure-requests; block-all-mixed-content; report-uri https://cameron.report-uri.com/r/d/csp/enforce; connect-src www.google-analytics.com;'",
-          ],
-        },
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeSecurityHeaders: true,
         mergeLinkHeaders: true,
         mergeCachingHeaders: true,
       },
