@@ -1,11 +1,12 @@
 import React from 'react'
 
 // Import typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
+// import 'typeface-montserrat'
+// import 'typeface-merriweather'
 
-import profileSprites from './camerons.png'
 import { rhythm } from '../utils/typography'
+
+require('./bio.scss')
 
 const degreesToMouse = (mouseEvent, image) => {
   const rect = image.getBoundingClientRect()
@@ -54,7 +55,7 @@ class Bio extends React.Component {
       hover: false,
     }
     // Hack, get us past the build stage.
-    if(typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       window.addEventListener('mousemove', this.mouseMove)
     }
   }
@@ -102,17 +103,12 @@ class Bio extends React.Component {
       >
         <div
           ref={this.profileRef}
+          className={'bio'}
           alt={`Cameron Maske`}
           onMouseEnter={this.onHoverImage}
           onMouseLeave={this.onBlurImage}
           style={{
             marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            flex: '0 0 100px',
-            height: '100px',
-            width: '100px',
-            backgroundSize: 'cover',
-            backgroundImage: `url(${profileSprites})`,
             backgroundPosition: backgroundPosition,
           }}
         />
@@ -121,7 +117,11 @@ class Bio extends React.Component {
           Are you a Python Developer? I'm working on a course about testing with
           Python and if you have a spare 5 minutes, I would love to hear about
           your{' '}
-          <a target="_blank" href="https://goo.gl/forms/1CwGmWboTnjEzgFi1">
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://goo.gl/forms/1CwGmWboTnjEzgFi1"
+          >
             experiences
           </a>
           .

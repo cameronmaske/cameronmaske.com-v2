@@ -1,10 +1,12 @@
+const config = require('./src/config')
+
 module.exports = {
   siteMetadata: {
-    title: 'Cameron Maske',
-    author: 'Cameron Maske',
-    description:
-      'The ramblings of a software developer. Pragmatic advice on everything from Django, Pytest to Docker.',
-    siteUrl: 'https://cameronmaske.com/',
+    title: config.title,
+    author: config.author,
+    twitter: config.twitter,
+    description: config.description,
+    siteUrl: config.siteUrl,
   },
   pathPrefix: '/',
   plugins: [
@@ -16,13 +18,27 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Cameron Maske`,
+        short_name: `CameronMaske`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/assets/icon.png`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 800,
+              withWebp: true,
+              quality: 80,
             },
           },
           {
@@ -43,7 +59,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-25258948-1`,
       },
     },
     `gatsby-plugin-feed`,

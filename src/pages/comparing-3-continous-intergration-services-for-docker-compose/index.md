@@ -3,7 +3,7 @@ title: Comparing 3 Continuous Intergration Services For a Docker Compose Project
 date: 2018-08-11
 published: true
 tags: DOCKER, CI
-summary_image: img/cards/ci.png
+summary_image: '/static/cards/ci.png'
 twitter_title: Comparing Codeship, CircleCI and TravisCI For a Docker Compose Project
 twitter_description: Find the best continuous intergration service for your Docker Compose project, by speed, cost and setup ease. Using a sample Django Rest Framework repo, this guide goes into depth about how to configuring each CI, the pricing options and measures the speed to build Docker images and run the test suite. 
 description: Find the best continuous intergration service for your Docker Compose project, by speed, cost and setup ease. Using a sample Django Rest Framework repo, this guide goes into depth about how to configuring each CI, the pricing options and measures the speed to build Docker images and run the test suite. 
