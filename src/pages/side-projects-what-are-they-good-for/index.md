@@ -3,7 +3,6 @@ title: Side Projects. What Are They Good For?
 date: 2013-10-10
 published: true
 tags: PROGRAMMING
-intro: todo
 --- 
 Side projects are a great way to work on that 'pet problem' or 'idea' thats been gnawing a way in your head the last week. But aside from scratching that itch, I believe they are a vital tool in making you a better developer. I thought I'd retrospectively look over my various oddities of side project from the last year to see what I've learn from them.
 

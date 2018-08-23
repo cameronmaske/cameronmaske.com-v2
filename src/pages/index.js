@@ -17,6 +17,7 @@ class BlogIndex extends React.Component {
         <Bio />
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
+          const intro = get(node, 'frontmatter.intro') || node.excerpt
           return (
             <div key={node.fields.slug}>
               <h3
@@ -29,10 +30,21 @@ class BlogIndex extends React.Component {
                 </Link>
               </h3>
               <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              <p dangerouslySetInnerHTML={{ __html: intro }} />
             </div>
           )
         })}
+        <div>
+          <h3>Side Projects</h3>
+          <ul class="unlisted">
+            <li>
+              <a href="https://closedlooplabs.com">Noise Blocker</a>
+            </li>
+            <li>
+              <a href="https://tryoutglasses.com">Try Out Glasses</a>
+            </li>
+          </ul>
+        </div>
       </div>
     )
   }
@@ -51,7 +63,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt(pruneLength: 240)
+          excerpt(pruneLength: 140)
           fields {
             slug
           }
