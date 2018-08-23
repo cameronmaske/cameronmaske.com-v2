@@ -125,7 +125,7 @@ SEO.propTypes = {
   summaryImage: PropTypes.string,
   twitterTitle: PropTypes.string,
   twitterDescription: PropTypes.string,
-  article: PropTypes.boolean,
+  article: PropTypes.bool,
   url: PropTypes.string,
   date: PropTypes.string,
   modifiedDate: PropTypes.string,
