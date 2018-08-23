@@ -4,7 +4,7 @@ date: 2012-07-01
 published: true
 topic: WEB DESIGN
 ---
-In this blog entry, I'm gonna run over some useful bookmarklets that have helped me with web design and hopefully will aid some of you.
+In this post, I'm gonna run over some useful bookmarklets that have helped me with web design and hopefully will aid some of you.
 Now, you might be wondering, what on earth is a bookmarklet? A [bookmarklet][1] is a browser addon stored in a bookmark. When clicked, they use javascript to add in functionality to browser. If that's still not clear, just watch one of the videos below, what they do should become more apparent! Now, without further ado, 3 that have helped me with web design!
 
 #[live.js][2]

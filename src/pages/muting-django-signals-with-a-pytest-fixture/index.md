@@ -7,7 +7,7 @@ summary_image: '/static/cards/django-signals-pytest.png'
 twitter_title: Muting Django Signals With A Pytest Fixture
 twitter_description: Learn how to implement an autouse pytest fixture to mute Django signals in your test suite. Useful to help speed up tests and prevent any excess database actions. 
 description: Learn how to implement an autouse pytest fixture to mute Django signals in your test suite. Useful to help speed up tests and prevent any excess database actions. 
-intro: todo
+intro: Learn how to implement an autouse pytest fixture to mute Django signals in your test suite. Useful to help speed up tests and prevent any excess database actions.
 ---
 In this post, you'll learn how to implement a global pytest fixture to automatically mute (and optionally unmute) Django signals in your tests.
 

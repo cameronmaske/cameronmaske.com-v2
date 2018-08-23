@@ -16,12 +16,13 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pathContext
     const date = dayjs(post.frontmatter.date)
     const pubDate = date.format('YYYY-MM-DD')
+    const title = `${post.frontmatter.title} · Cameron Maske`
 
     return (
       <div>
         <SEO
           summaryImage={post.frontmatter.summary_image}
-          title={post.frontmatter.title}
+          title={title}
           description={description}
           twitterTitle={post.frontmatter.twitter}
           twitterDescription={post.frontmatter.twitter_description}

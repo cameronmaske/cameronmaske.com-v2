@@ -4,10 +4,10 @@ date: 2018-08-11
 published: true
 tags: DOCKER, CI
 summary_image: '/static/cards/ci.png'
-twitter_title: Comparing Codeship, CircleCI and TravisCI For a Docker Compose Project
+twitter_title: Comparing Codeship, CircleCI and TravisCI For A Docker Compose Project
 twitter_description: Find the best continuous intergration service for your Docker Compose project, by speed, cost and setup ease. Using a sample Django Rest Framework repo, this guide goes into depth about how to configuring each CI, the pricing options and measures the speed to build Docker images and run the test suite. 
 description: Find the best continuous intergration service for your Docker Compose project, by speed, cost and setup ease. Using a sample Django Rest Framework repo, this guide goes into depth about how to configuring each CI, the pricing options and measures the speed to build Docker images and run the test suite. 
-intro: todo
+intro: Comparing Codeship, CircleCI and TravisCI by speed, cost and setup ease for a Django Rest Framework project.
 ---
 In this post, I'm going to compare 3 different hosted continuous integration services (Codeship, CircleCI and Travis) for a Docker Compose project.
 ## What I'm looking for 
@@ -231,6 +231,11 @@ To compare the speed of each offering, we'll look at two things:
 
 * How long the test-suite took to run, reported by pytest
 * How long the overall build took, reported by each service. 
+
+|                   | Codeship             | CircleCI             | Travis              |
+|-------------------|----------------------|----------------------|---------------------|
+| Time to run tests | 117 seconds          | 127 seconds          | 128 seconds         |
+| Total build time  | 2 minutes 56 seconds | 3 minutes 11 seconds | 5 minutes 3 seconds |
 
 <table class="table">
   <thead>

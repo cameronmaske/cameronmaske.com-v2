@@ -3,10 +3,9 @@ title: Designing a Website
 date: 2013-06-11
 published: true
 tags: WEB DESIGN
-intro: todo
+intro: My process putting together a bootstrap theme to sell on wrapbootstrap. 
 ---
 In this post, I’ll be talking about designing a website from scratch. We will explore some good starting points and helpful tips on getting the feel and mood of your design down.
-
 
 5 months, 23 files and 3,528 lines of code later my ([for sale][1]) website design is done. This is the [end result.][2]
 

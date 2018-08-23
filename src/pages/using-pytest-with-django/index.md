@@ -3,9 +3,9 @@ title: Using pytest with Django
 date: 2015-12-08
 published: true
 tags: DEVELOPMENT
-intro: todo
+intro: Life's too short to waste time on testing boilerplate. Learn how to get pytest up and running on your Django Project.
 --- 
-When it comes to testing in python pytest is my favorite testing tool. pytest is a testing framework that strips out boilerplate and adds a whole bunch of sensible utilities to make your tests more pythonic. In this post we'll cover how to add that awesomeness to a Django project.
+When it comes to testing in python `pytest` is my favorite testing tool. `pytest` is a testing framework that strips out boilerplate and adds a whole bunch of sensible utilities to make your tests more pythonic. In this post we'll cover how to add that awesomeness to a Django project.
 
 This is a cross-post of a post I did for the [TrackMaven Engine Room](http://engineroom.trackmaven.com/blog/using-pytest-with-django/).
 

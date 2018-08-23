@@ -1,8 +1,8 @@
 module.exports = {
-  title: 'Cameron Maske',
+  title: 'Coding, testings and startups · Cameron Maske',
   author: 'Cameron Maske',
   twitter: '@cameronmaske',
   description:
-    'The ramblings of a software developer. Pragmatic advice on everything from Django, Pytest to Docker.',
+    "Hi! I'm Cameron a Javascript and Python software developer by trade. Inside are guides, articles and screencasts on everything from Django, Pytest to Docker.",
   siteUrl: 'https://cameronmaske.com',
 }
