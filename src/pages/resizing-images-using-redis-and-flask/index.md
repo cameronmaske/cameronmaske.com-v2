@@ -9,7 +9,7 @@ Recently I put together a mini-project that resizes images convenientally throug
 
 The code is all on [github](https://github.com/cameronmaske/puppy-eyes) and there is a [demo](http://puppy-eyes.herokuapp.com/) here to try out! To resize an image, you pass the image's url as the url parameter `link`:
 
-![http://puppy-eyes.herokuapp.com/?link=http://i.imgur.com/75Jr3.jpg](http://puppy-eyes.herokuapp.com/?link=http://i.imgur.com/75Jr3.jpg)
+![https://puppy-eyes.herokuapp.com/?link=http://i.imgur.com/75Jr3.jpg](https://puppy-eyes.herokuapp.com/?link=http://i.imgur.com/75Jr3.jpg)
 
 And the server will return the resized *thumbnail* image!
 
