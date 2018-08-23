@@ -17,7 +17,7 @@ I’ll be talking about the process from start to finish.
 For anyone curious in web design, hopefully this will provide a few helpful tips for your own design projects.  Just on that note, this is my general approach but isn’t the end all (or necessarily best way) to go about designing a site. With that disclaimer in mind, let’s jump into it.
 From start to finish
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/-A3tfevse6A" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-A3tfevse6A" frameborder="0" allowfullscreen></iframe>
 
 Before starting work on the design, I wanted to document and capture the process. I threw together a rudimentary script to take a screenshot of the in-development site every 60 seconds. The timelapse above is the result of many hours of work condensed in 2 short minutes.
 
@@ -41,21 +41,19 @@ Snippet #1 - [emberjs.com](https://www.emberjs.com)
 
 [![](./ember-screenshot.png)](http://www.emberjs.com)
 
-[emberjs.com](http://www.emberjs.com) is a really neat site. What particularly stood out to me was the striking contrast between the red diamond textured navigation bar and main page. It’s distinctive and importantly memorable. Colors for me, are an important aspect to creating a lasting impression (good or bad). Designs lacking saturation (a.k.a black and white) can be striking but I have never found them to be particularly memorable. This might only be me, but sites that get colors right leave a lasting impression. In this case, I really liked the interplay between the colors and texture and the way the design shifts your attention below the navigation bar.
+[emberjs.com](https://www.emberjs.com) is a really neat site. What particularly stood out to me was the striking contrast between the red diamond textured navigation bar and main page. It’s distinctive and importantly memorable. Colors for me, are an important aspect to creating a lasting impression (good or bad). Designs lacking saturation (a.k.a black and white) can be striking but I have never found them to be particularly memorable. This might only be me, but sites that get colors right leave a lasting impression. In this case, I really liked the interplay between the colors and texture and the way the design shifts your attention below the navigation bar.
 
 
-Snippet #2 - [artiery.io](http://artiery.io)
+Snippet #2 - [artiery.io](https://artiery.io)
 -------------------------------------------
 
 ![](./artiery-screenshot-2.png)
 
 [artery.io](http://www.artery.io) was interesting for two reason. Their landing page combines clean white typography on dark gray. This produces a high contrast striking design with great readability. The touches of color (blue and red) fit in well on the dark background (and make it memorable).
 
-The second reason was the interaction of the sidebar. See the video below
+The second reason was the interaction of the sidebar. See the video below.
 
-<div class="fit-vid">
-    <iframe class="fit-vid" src="http://www.screenr.com/embed/rF37" width="650" height="396" frameborder="0"></iframe>
-</div>
+![The site hosting the screencast is sadly gone](./screencast-placeholder2.png)
 
 It felt intuitive. Hiding when not needed to maximize space for the user, but was easy to call upon when wanted. I really liked it’s convenience and wanted to capture that in my own design.
 

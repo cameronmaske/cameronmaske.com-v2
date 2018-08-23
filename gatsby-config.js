@@ -73,5 +73,13 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        mergeSecurityHeaders: true,
+        mergeLinkHeaders: true,
+        mergeCachingHeaders: true,
+      },
+    },
   ],
 }
