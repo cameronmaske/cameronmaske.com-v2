@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import config from '../config'
+import PropTypes from 'prop-types'
 
 class SEO extends Component {
   render() {
-    console.log(config)
     const twitter = config.twitter
     const siteDescription = config.description
     const siteUrl = config.description
@@ -20,7 +20,7 @@ class SEO extends Component {
       article,
       url,
       date,
-      modifieredDate,
+      modifiedDate,
     } = this.props
 
     let meta = [
@@ -116,6 +116,19 @@ class SEO extends Component {
       />
     )
   }
+}
+
+SEO.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  author: PropTypes.string,
+  summaryImage: PropTypes.string,
+  twitterTitle: PropTypes.string,
+  twitterDescription: PropTypes.string,
+  article: PropTypes.boolean,
+  url: PropTypes.string,
+  date: PropTypes.string,
+  modifiedDate: PropTypes.string,
 }
 
 export default SEO

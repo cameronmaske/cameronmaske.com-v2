@@ -23,7 +23,10 @@ class BlogPostTemplate extends React.Component {
           description={description}
           twitterTitle={post.frontmatter.twitter}
           twitterDescription={post.frontmatter.twitter_description}
+          date={post.frontmatter.date}
+          modifiedDate={post.frontmatter.updated_date}
           article={true}
+          url={siteUrl + this.props.location.pathname}
         />
         <h1>{post.frontmatter.title}</h1>
         <p
@@ -82,6 +85,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -95,6 +99,8 @@ export const pageQuery = graphql`
         description
         twitter_description
         twitter_title
+        updated_date(formatString: "MMMM DD, YYYY")
+        tags
       }
     }
   }

@@ -8,7 +8,7 @@ twitter_title: How To Run Docker On OSX With NSF (And Avoid Docker for Mac Slow 
 twitter_description: This guide show you how to overcome Docker For Mac's slow filesystem performance, by using Docker Toolbox and docker-machine-nfs (~20x faster).
 description: This guide show you how to overcome Docker For Mac's slow filesystem performance, by using Docker Toolbox and docker-machine-nfs (~20x faster).
 intro: todo
-updated: 2018-01-01
+updated_date: 2018-01-01
 ---
 In this post, I'll cover the best way I've found to run Docker in my local OSX development environment.
 
