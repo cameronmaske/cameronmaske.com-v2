@@ -121,7 +121,7 @@ class Bio extends React.Component {
           Are you a Python Developer? I'm working on a course about testing with
           Python and if you have a spare 5 minutes, I would love to hear about
           your{' '}
-          <a target="_blank" href="https://goo.gl/forms/1CwGmWboTnjEzgFi1">
+          <a target="_blank" rel="noopener" href="https://goo.gl/forms/1CwGmWboTnjEzgFi1">
             experiences
           </a>
           .

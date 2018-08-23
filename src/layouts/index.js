@@ -1,21 +1,23 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { rhythm, scale } from '../utils/typography'
+import Helmet from 'react-helmet'
+import { description } from '../utils/meta'
+import get from 'lodash/get'
+
 require('prism-themes/themes/prism-a11y-dark.css')
 import '../styles/index.scss'
-// require("prismjs/themes/prism.css")
 
 class Template extends React.Component {
   render() {
     const { location, children } = this.props
     let header
+    const siteTitle = 'Cameron Maske'
 
     let rootPath = `/`
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
       rootPath = __PATH_PREFIX__ + `/`
     }
-
-    const siteTitle = 'Cameron Maske'
 
     if (location.pathname === rootPath) {
       header = (

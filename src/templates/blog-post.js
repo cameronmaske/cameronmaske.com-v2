@@ -5,22 +5,26 @@ import get from 'lodash/get'
 import Disqus from 'disqus-react'
 
 import Bio from '../components/Bio'
+import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
+    const siteUrl = get(this.props, 'data.site.siteMetadata.siteUrl')
     const post = this.props.data.markdownRemark
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const siteDescription = post.excerpt
+    const description = post.description || post.excerpt
     const { previous, next } = this.props.pathContext
 
     return (
       <div>
-        <Helmet 
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={`${post.frontmatter.title} | ${siteTitle}`} 
-          />
+        <SEO
+          summaryImage={post.frontmatter.summary_image}
+          title={post.frontmatter.title}
+          description={description}
+          twitterTitle={post.frontmatter.twitter}
+          twitterDescription={post.frontmatter.twitter_description}
+          article={true}
+        />
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
@@ -87,6 +91,10 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        summary_image
+        description
+        twitter_description
+        twitter_title
       }
     }
   }

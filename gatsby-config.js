@@ -1,10 +1,12 @@
+const config = require('./src/config')
+
 module.exports = {
   siteMetadata: {
-    title: 'Cameron Maske',
-    author: 'Cameron Maske',
-    description:
-      'The ramblings of a software developer. Pragmatic advice on everything from Django, Pytest to Docker.',
-    siteUrl: 'https://cameronmaske.com/',
+    title: config.title,
+    author: config.author,
+    twitter: config.twitter,
+    description: config.description,
+    siteUrl: config.siteUrl,
   },
   pathPrefix: '/',
   plugins: [
@@ -55,7 +57,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-25258948-1`,
       },
     },
     `gatsby-plugin-feed`,
