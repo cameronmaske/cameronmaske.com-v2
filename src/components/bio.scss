@@ -1,0 +1,16 @@
+.bio {
+    margin-bottom: 0;
+    flex: 0 0 100px;
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-image: url('./camerons@1x.png');
+    background-image: -webkit-image-set(
+        url('./camerons@1x.webp') 1x,
+        url('./camerons@2x.webp') 2x
+    );
+    background-image: image-set(
+        url('./camerons@1x.png') 1x,
+        url('./camerons@2x.png') 2x
+    );
+}

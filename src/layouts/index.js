@@ -1,11 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { rhythm, scale } from '../utils/typography'
-import Helmet from 'react-helmet'
-import { description } from '../utils/meta'
-import get from 'lodash/get'
 
+// Types faces
+require('typeface-montserrat')
+require('typeface-merriweather')
+// PrismJS styling
 require('prism-themes/themes/prism-a11y-dark.css')
+// Global styles
 import '../styles/index.scss'
 
 class Template extends React.Component {
