@@ -6,6 +6,7 @@ import Disqus from 'disqus-react'
 import Bio from '../components/Bio'
 import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
+import dayjs from 'dayjs'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -13,6 +14,8 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const description = post.description || post.excerpt
     const { previous, next } = this.props.pathContext
+    const date = dayjs(post.frontmatter.date)
+    const pubDate = date.format('YYYY-MM-DD')
 
     return (
       <div>
@@ -27,7 +30,7 @@ class BlogPostTemplate extends React.Component {
           article={true}
           url={siteUrl + this.props.location.pathname}
         />
-        <h1>{post.frontmatter.title}</h1>
+        <h1 itemprop="title">{post.frontmatter.title}</h1>
         <p
           style={{
             ...scale(-1 / 5),
@@ -35,10 +38,15 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
             marginTop: rhythm(-1),
           }}
+          itemprop="pubdate"
+          value={pubDate}
         >
-          {post.frontmatter.date}
+          {date.format('MMMM DD, YYYY')}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          itemprop="articleBody"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -69,7 +77,6 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-
         <Disqus.DiscussionEmbed shortname={'cameronmaske'} />
       </div>
     )
@@ -93,12 +100,12 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
         summary_image
         description
         twitter_description
         twitter_title
-        updated_date(formatString: "MMMM DD, YYYY")
+        updated_date
         tags
       }
     }
