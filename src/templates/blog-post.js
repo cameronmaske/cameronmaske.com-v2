@@ -30,7 +30,7 @@ class BlogPostTemplate extends React.Component {
           article={true}
           url={siteUrl + this.props.location.pathname}
         />
-        <h1 itemprop="title">{post.frontmatter.title}</h1>
+        <h1 itemProp="title">{post.frontmatter.title}</h1>
         <p
           style={{
             ...scale(-1 / 5),
@@ -38,13 +38,13 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
             marginTop: rhythm(-1),
           }}
-          itemprop="pubdate"
+          itemProp="pubdate"
           value={pubDate}
         >
           {date.format('MMMM DD, YYYY')}
         </p>
         <div
-          itemprop="articleBody"
+          itemProp="articleBody"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <hr
@@ -77,7 +77,13 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-        <Disqus.DiscussionEmbed shortname={'cameronmaske'} />
+        <Disqus.DiscussionEmbed
+          shortname={'cameronmaske'}
+          config={{
+            url: siteUrl + this.props.location.pathname,
+            title: post.frontmatter.title,
+          }}
+        />
       </div>
     )
   }

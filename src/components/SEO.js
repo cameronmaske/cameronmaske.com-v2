@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import config from '../config'
 import PropTypes from 'prop-types'
+import favicon from '../assets/favicon.ico'
 
 class SEO extends Component {
   render() {
@@ -113,6 +114,7 @@ class SEO extends Component {
         htmlAttributes={{ lang: 'en' }}
         meta={meta}
         title={title || siteTitle}
+        link={[{ rel: 'shortcut icon', href: `${favicon}` }]}
       />
     )
   }
