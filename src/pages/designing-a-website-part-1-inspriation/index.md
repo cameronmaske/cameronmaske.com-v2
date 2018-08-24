@@ -59,7 +59,7 @@ It felt intuitive. Hiding when not needed to maximize space for the user, but wa
 Snippet #3 - [dribbble.com](http://dribbble.com)
 ------------------------------------------------
 
-![http://dribbble.com/shots/630596-CRM-Project-Page](http://dribbble.s3.amazonaws.com/users/5577/screenshots/630596/crm_project_small.png)
+![https://dribbble.com/shots/630596-CRM-Project-Page](https://dribbble.s3.amazonaws.com/users/5577/screenshots/630596/crm_project_small.png)
 
 Dribbble (a network of very talented graphic designers and digital artists from all around the world) is a great bucket of inspiration. After exhausting my ‘scrapbook’ folder, this was my next destination. I really liked the layout of this particular sidebar by [Jason Mayo](http://dribbble.com/madebymayo). The contrast from sidebar to main page is distinct and communicates a clear separation of functionality to the user. The active ‘tab’ in the sidebar clearly links to the main page by sharing the same colour. It’s intention is so obvious and intuitive.
 
