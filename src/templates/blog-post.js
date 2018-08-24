@@ -53,7 +53,7 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <Bio />
+        <Bio full={true} />
         <ul
           style={{
             display: 'flex',

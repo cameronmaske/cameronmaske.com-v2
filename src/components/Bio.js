@@ -89,6 +89,55 @@ class Bio extends React.Component {
         backgroundPosition = `0 ${this.state.direction * width}px`
       }
     }
+    let content
+    if (this.props.full) {
+      content = (
+        <p>
+          Written by <b>Cameron Maske</b>.<br />
+          Are you a Python Developer? I'm working on a course about testing with
+          Python and if you have a spare 5 minutes, I would love to hear about
+          your{' '}
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://goo.gl/forms/1CwGmWboTnjEzgFi1"
+          >
+            experiences
+          </a>
+          . <br />
+          Alternativly, want to get in touch? Feel free to drop me an{' '}
+          <a target="_blank" rel="noopener" href="mailto:c@meronmaske.com">
+            {' '}
+            email
+          </a>{' '}
+          or over on{' '}
+          <a
+            target="_blank"
+            rel="noopener"
+            href="http://www.twitter.com/cameronmaske/"
+          >
+            twitter
+          </a>
+          .
+        </p>
+      )
+    } else {
+      content = (
+        <p>
+          Are you a Python Developer? I'm working on a course about testing with
+          Python with pytest and if you have a spare 5 minutes, I would love to
+          hear about your{' '}
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://goo.gl/forms/1CwGmWboTnjEzgFi1"
+          >
+            experiences
+          </a>
+          .
+        </p>
+      )
+    }
     return (
       <div
         style={{
@@ -107,20 +156,7 @@ class Bio extends React.Component {
             backgroundPosition: backgroundPosition,
           }}
         />
-        <p>
-          Written by <b>Cameron Maske</b>.<br />
-          Are you a Python Developer? I'm working on a course about testing with
-          Python and if you have a spare 5 minutes, I would love to hear about
-          your{' '}
-          <a
-            target="_blank"
-            rel="noopener"
-            href="https://goo.gl/forms/1CwGmWboTnjEzgFi1"
-          >
-            experiences
-          </a>
-          .
-        </p>
+        {content}
       </div>
     )
   }
