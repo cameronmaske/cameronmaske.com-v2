@@ -3,6 +3,6 @@ module.exports = {
   author: 'Cameron Maske',
   twitter: '@cameronmaske',
   description:
-    "Hi! I'm Cameron a Javascript and Python software developer by trade. Inside are guides, articles and screencasts on everything from Django, Pytest to Docker.",
+    'Hi! I am Cameron, Javascript and Python software developer by trade. Inside are guides, articles and screencasts on everything from Django, Pytest to Docker.',
   siteUrl: 'https://cameronmaske.com',
 }
