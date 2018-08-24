@@ -18,6 +18,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: config.siteUrl,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Cameron Maske`,
