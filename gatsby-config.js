@@ -24,6 +24,18 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        sitemap: 'https://cameronmaske.com/sitemap.xml',
+        policy: [
+          {
+            userAgent: '*',
+            disallow: '',
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Cameron Maske`,
