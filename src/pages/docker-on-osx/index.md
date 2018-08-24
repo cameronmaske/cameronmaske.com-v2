@@ -1,8 +1,7 @@
 ---
 title: How To Run Docker On OSX With NSF (And Avoid Docker for Mac Slow Performance)
 date: 2017-01-01
-published: true
-tags: DOCKER
+tags: DOCKER, OSX
 summary_image: '/static/cards/docker-for-mac.png'
 twitter_title: How To Run Docker On OSX With NSF (And Avoid Docker for Mac Slow Performance)
 twitter_description: This guide show you how to overcome Docker For Mac's slow filesystem performance, by using Docker Toolbox and docker-machine-nfs (~20x faster).
@@ -10,6 +9,7 @@ description: This guide show you how to overcome Docker For Mac's slow filesyste
 intro: Use Docker Toolbox and docker-machine-nfs to create a great local OSX Docker development environment (~20x faster vs Docker For Mac).
 updated_date: 2018-01-01
 ---
+
 In this post, I'll cover the best way I've found to run Docker in my local OSX development environment.
 
 This post won't cover (and has covered in much better detail) [what Docker is](https://www.safaribooksonline.com/library/view/introduction-to-docker/9781491916179/), or [the benefits](https://www.oreilly.com/ideas/what-containers-can-do-for-you) of using it.
@@ -29,10 +29,11 @@ While, hopefully one day [Docker For Mac's filesystem performance issues](https:
 Download the `.pkg` from [https://github.com/docker/toolbox/releases/tag/v1.12.5](https://github.com/docker/toolbox/releases/tag/v1.12.5) and follow the GUI's install steps.
 
 This will ensure the following packages are installed...
-* VirtualBox
-* Docker (client)
-* Docker Compose
-* Docker Machine
+
+- VirtualBox
+- Docker (client)
+- Docker Compose
+- Docker Machine
 
 ```bash
 $ docker --version
@@ -49,8 +50,8 @@ Modify the command below according to your computer's specs. Once assigned, you 
 
 Here are the two choices to make.
 
-* `--virtualbox-memory` - How much memory (in MBs) you want to allow the VM. `4096` (or ~4GB) should be the absolute minimum. Typically you want to use half of your computer's total memory.
-* `--virtualbox-disk-size` - The maximum size (in MBs) allowed for the VM's disk size. `30000` (or ~30GB) is a good choice (you generally don't want to go below that).
+- `--virtualbox-memory` - How much memory (in MBs) you want to allow the VM. `4096` (or ~4GB) should be the absolute minimum. Typically you want to use half of your computer's total memory.
+- `--virtualbox-disk-size` - The maximum size (in MBs) allowed for the VM's disk size. `30000` (or ~30GB) is a good choice (you generally don't want to go below that).
 
 With those values chosen, modify then run the following command...
 
@@ -64,7 +65,7 @@ docker-machine create -d virtualbox \
 
 ### Step 3. Enabling NFS
 
-By default, your `/Users/` folders is shared between your host and the VM. This enables you to seamlessly run Docker containers in the VM and still have access to your usual files. To over come those previously mentioned file system issues, we'll enhance those shared folders with  [NFS](http://www.careerride.com/Linux-NFS.aspx), a high performance network file sharing system.
+By default, your `/Users/` folders is shared between your host and the VM. This enables you to seamlessly run Docker containers in the VM and still have access to your usual files. To over come those previously mentioned file system issues, we'll enhance those shared folders with [NFS](http://www.careerride.com/Linux-NFS.aspx), a high performance network file sharing system.
 In order to use NFS on your freshly created VM, you'll need to install a 3rd party tool, called [`docker-machine-nfs`](https://github.com/adlogix/docker-machine-nfs).
 
 You have two installation options, either curl or via brew. Your choice.
@@ -82,7 +83,7 @@ brew install docker-machine-nfs
 
 Next, we'll enabled NFS by running the following command. As before, modify the command below according to your setup.
 
-* `--shared-folder` - You want to set this to the absolute path of your development folder. If possible, limit this to just where your code lives. This will result in significantly higher performance, as less files need to be watched and synced to the VM.
+- `--shared-folder` - You want to set this to the absolute path of your development folder. If possible, limit this to just where your code lives. This will result in significantly higher performance, as less files need to be watched and synced to the VM.
 
 With the folder chosen, modify then run the following command...
 
@@ -97,8 +98,9 @@ The `mount-opts` settings ensure any watch file changes play nicely with any fro
 ### Step 4. Start the VM.
 
 In order to run docker, you'll need to do two things.
-* Start the VM.
-* Set the env to your local terminal.
+
+- Start the VM.
+- Set the env to your local terminal.
 
 This is accomplished by the following commands...
 
@@ -106,7 +108,6 @@ This is accomplished by the following commands...
 $ docker-machine start default
 $ eval $(docker-machine env default)
 ```
-
 
 I use ZSH as my shell. My normal workflow involves running an alias command [`dm-up`](https://github.com/cameronmaske/dotfiles/blob/61f5657b71ef3f05337dcfe5fa604bcb535238c7/.zsh/functions#L170), which boots the VM and set the resulting environment variables. Any other terminals opened check if the [VM is running](https://github.com/cameronmaske/dotfiles/blob/61f5657b71ef3f05337dcfe5fa604bcb535238c7/.zsh/functions#L162) and if so set the environment variables automatically.
 
@@ -128,7 +129,6 @@ function dm-stop() {
     docker-machine stop default;
 }
 ```
-
 
 ### Step 5. Setting up `localdocker`.
 
