@@ -2,15 +2,15 @@
 title: "How To Mock Patch A Function [Video]"
 date: 2018-08-23
 tags: PYTEST, MOCK
-twitter_title: null
-twitter_description: null
-description: null
-intro: 
+twitter_title: How To Mock Patch A Function (Testing Python With Pytest)
+description: Learn by example how to use @mock.patch when testing python with pytest. Covers mocking best practices, including using autospec and assert_called_once_with to avoid potential gotchas. Want to follow along? You can run the example test code in your browser.
+intro: Learn the basics of mocking when testing Python with pytest in a short and to the point video. You can also run the example test code in your browser.
 ---
+Getting started testing with mock can be intimidating and confusing! To combat this, I've put together a short video to help you learn the essentials and avoid the common gotchas that can trip you up.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ClAdw7ZJf5E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-> Try this code live in your browser. Hit the ▶️  button below to run the tests. Open the files 📄 to see `test_dnd.pny` and `dnd.py`.
+> You can run this code live in your browser. <br/>Hit the ▶️  button below to run the tests. Open the files (📄) to see `test_dnd.pny` and `dnd.py`.
 
 <iframe height="600px" width="100%" src="https://repl.it/@cameronmaske/How-To-Mock-Patch-A-Function-Testing-Python-With-Pytest?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
