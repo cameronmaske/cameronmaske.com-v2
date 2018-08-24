@@ -4,5 +4,5 @@ module.exports = {
   twitter: '@cameronmaske',
   description:
     'Hi! I am Cameron, Javascript and Python software developer by trade. Inside are guides, articles and screencasts on everything from Django, Pytest to Docker.',
-  siteUrl: 'https://cameronmaske.com',
+  siteUrl: 'https://www.cameronmaske.com',
 }
