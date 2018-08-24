@@ -231,11 +231,6 @@ To compare the speed of each offering, we'll look at two things:
 * How long the test-suite took to run, reported by pytest
 * How long the overall build took, reported by each service. 
 
-|                   | Codeship             | CircleCI             | Travis              |
-|-------------------|----------------------|----------------------|---------------------|
-| Time to run tests | 117 seconds          | 127 seconds          | 128 seconds         |
-| Total build time  | 2 minutes 56 seconds | 3 minutes 11 seconds | 5 minutes 3 seconds |
-
 <table class="table">
   <thead>
     <tr>
