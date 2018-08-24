@@ -12,7 +12,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const siteUrl = get(this.props, 'data.site.siteMetadata.siteUrl')
     const post = this.props.data.markdownRemark
-    const description = post.description || post.excerpt
+    const description = post.frontmatter.description || post.excerpt
     const { previous, next } = this.props.pathContext
     const date = dayjs(post.frontmatter.date)
     const pubDate = date.format('YYYY-MM-DD')

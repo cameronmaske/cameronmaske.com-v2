@@ -8,7 +8,6 @@ class SEO extends Component {
   render() {
     const twitter = config.twitter
     const siteDescription = config.description
-    const siteUrl = config.description
     const siteTitle = config.title
     const siteAuthor = config.author
     const {
