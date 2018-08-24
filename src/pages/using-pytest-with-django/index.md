@@ -1,14 +1,15 @@
 ---
+
 title: Using pytest with Django
 date: 2015-12-08
-published: true
-tags: DEVELOPMENT
+tags: DJANGO, PYTEST
 intro: Life's too short to waste time on testing boilerplate. Learn how to get pytest up and running on your Django Project.
---- 
+
+---
+
 When it comes to testing in python `pytest` is my favorite testing tool. `pytest` is a testing framework that strips out boilerplate and adds a whole bunch of sensible utilities to make your tests more pythonic. In this post we'll cover how to add that awesomeness to a Django project.
 
 This is a cross-post of a post I did for the [TrackMaven Engine Room](http://engineroom.trackmaven.com/blog/using-pytest-with-django/).
-
 
 ### Comparing `unitest` to `pytest`
 
@@ -31,12 +32,11 @@ In our newer Django projects we've been using `pytest` instead of the default te
 
 # How?
 
-Let's dive into how you can setup `pytest` on your Django projects. For this post, I've created an repo with a dummy Django 1.8 [project](https://github.com/TrackMaven/using-pytest-with-django).  It's local development environment is managed by [Docker + Docker Compose.](http://engineroom.trackmaven.com/blog/a-better-development-environment-with-docker-and-fig/). All code examples are pulled from there.
+Let's dive into how you can setup `pytest` on your Django projects. For this post, I've created an repo with a dummy Django 1.8 [project](https://github.com/TrackMaven/using-pytest-with-django). It's local development environment is managed by [Docker + Docker Compose.](http://engineroom.trackmaven.com/blog/a-better-development-environment-with-docker-and-fig/). All code examples are pulled from there.
 
-We'll need one more library in addition to `pytest`  to get everything working smoothly with Django. [`pytest-django`](https://pytest-django.readthedocs.org) takes care of replicating [Django's existing testing functionality](https://docs.djangoproject.com/en/1.8/topics/testing/tools/#transactiontestcase) into `pytest`.
+We'll need one more library in addition to `pytest` to get everything working smoothly with Django. [`pytest-django`](https://pytest-django.readthedocs.org) takes care of replicating [Django's existing testing functionality](https://docs.djangoproject.com/en/1.8/topics/testing/tools/#transactiontestcase) into `pytest`.
 
 In our [`requirements-dev.txt`](https://github.com/TrackMaven/using-pytest-with-django/blob/master/requirements-dev.txt) we've can add in the two packages to be installed.
-
 
 ```txt
 pytest==2.7.2
@@ -61,7 +61,6 @@ tests/
 ```
 
 In our case, we want the [`conftest.py`](https://github.com/TrackMaven/using-pytest-with-django/blob/master/tests/conftest.py) to apply to all tests therefore we place it in our tests root directory.
-
 
 ```python
 import os
@@ -102,7 +101,6 @@ tests/unit_tests/example/test_helpers.py .
 === 3 passed in 2.95 seconds ===
 ```
 
-
 To run a specific test in a module/file, you just include the path after the command, like so `py.test <path>`.
 
 ```bash
@@ -118,7 +116,6 @@ tests/integration_tests/example/test_models.py ..
 === 2 passed in 2.92 seconds ===
 ```
 
-
 To run a specific test, point `py.test` to a specific file and test name, like so `py.test <path_to_file>::<name_of_test>`.
 
 ```bash
@@ -133,7 +130,6 @@ tests/integration_tests/example/test_models.py .
 
 === 1 passed in 2.94 seconds ===
 ```
-
 
 ### Existing tests.
 
@@ -159,7 +155,7 @@ class ExampleTestCase(TestCase):
 
 One key difference to watch out for is running `pytest` style tests against the database.
 
-By default, `pytest-django` takes a conservative approach to enabling database access in tests.  Any `pytest` style tests will fail if they try to access the database.
+By default, `pytest-django` takes a conservative approach to enabling database access in tests. Any `pytest` style tests will fail if they try to access the database.
 In order to allow database access to a test, you need add a [`py.test mark`](http://pytest.org/latest/mark.html) decorator like so...
 
 ```python

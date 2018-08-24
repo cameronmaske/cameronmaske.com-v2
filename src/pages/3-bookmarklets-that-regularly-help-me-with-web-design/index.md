@@ -1,9 +1,9 @@
 ---
 title: 3 Bookmarklets That Regularly Help Me With Web Design
 date: 2012-07-01
-published: true
-topic: WEB DESIGN
+tags: WEB DESIGN
 ---
+
 In this post, I'm gonna run over some useful bookmarklets that have helped me with web design and hopefully will aid some of you.
 Now, you might be wondering, what on earth is a bookmarklet? A [bookmarklet][1] is a browser addon stored in a bookmark. When clicked, they use javascript to add in functionality to browser. If that's still not clear, just watch one of the videos below, what they do should become more apparent! Now, without further ado, 3 that have helped me with web design!
 
@@ -29,7 +29,7 @@ Finally, there is **Markup**. Markup lets you draw on any webpage with a variety
 
 ![The site hosting the screencast is sadly gone](./screencast-placeholder.png)
 
-It's worth it's weight in gold when asking for design critique. Instead of someone telling you this elements looks great/terrible, you can highlight it straight on the web page and send it over. 
+It's worth it's weight in gold when asking for design critique. Instead of someone telling you this elements looks great/terrible, you can highlight it straight on the web page and send it over.
 
 Have any of these helped, do you use any bookmarlets that you'd like to recommended? Let me know in the comments.
 
