@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        sitemap: 'https://cameronmaske.com/sitemap.xml',
+        sitemap: 'https://www.cameronmaske.com/sitemap.xml',
         policy: [
           {
             userAgent: '*',
