@@ -1,12 +1,34 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import get from 'lodash/get'
+import { push } from 'gatsby-link'
 
 import SEO from '../components/SEO'
 import VideoTabs from '../components/VideoTabs'
 import YouTube from 'react-youtube'
 import styles from './video.module.css'
 import Playlist from '../components/Playlist'
+
+const formatPlaylist = (edges, video) => {
+  return edges
+    .filter(({ node }) => node.frontmatter.youtubeId)
+    .map(({ node }) => {
+      console.log(video)
+      return {
+        title: node.frontmatter.title,
+        slug: node.fields.slug,
+        duration: node.frontmatter.duration,
+        isPlaying: video.fields.slug == node.fields.slug,
+        isUpNext: false,
+      }
+    })
+    .reduce((acc, playlistItem, index) => {
+      console.log(acc)
+      if (index > 0 && acc[index - 1].isPlaying) {
+        playlistItem.isUpNext = true
+      }
+      return [...acc, playlistItem]
+    }, [])
+}
 
 class CourseVideoTemplate extends React.Component {
   constructor(props) {
@@ -17,8 +39,12 @@ class CourseVideoTemplate extends React.Component {
       autoplay = JSON.parse(autoplayPref)
     }
     console.log(`Autoplay: ${autoplay}`)
+    const video = this.props.data.markdownRemark
+
     this.state = {
       autoplay: autoplay,
+      video: video,
+      playlist: formatPlaylist(this.props.data.allMarkdownRemark.edges, video),
     }
   }
   onAutoplay = value => {
@@ -32,15 +58,24 @@ class CourseVideoTemplate extends React.Component {
   onVideoEnd = () => {
     if (this.state.autoplay) {
       console.log('Playing next...')
+      const nextVideo = this.state.playlist.find(item => item.isUpNext)
+      if (nextVideo) {
+        push(nextVideo.slug)
+      }
     }
   }
 
   render() {
     const siteUrl = get(this.props, 'data.site.siteMetadata.siteUrl')
-    const video = this.props.data.markdownRemark
-    const description = video.frontmatter.description || video.excerpt
-    const { previous, next } = this.props.pathContext
+    const video = this.state.video
     const title = `${video.frontmatter.title} · Cameron Maske`
+    const description = video.frontmatter.description
+
+    const playlistItems = formatPlaylist(
+      this.props.data.allMarkdownRemark.edges,
+      video
+    )
+
     const youtubeOpts = {
       playerVars: {
         autoplay: this.state.autoplay,
@@ -48,34 +83,7 @@ class CourseVideoTemplate extends React.Component {
         rel: 0,
       },
     }
-    const playlistItems = [
-      {
-        title: 'Setup And Run A Test With Pytest',
-        isPlaying: true,
-        slug: '/1/',
-      },
-      {
-        title: 'Another',
-        slug: '/2/',
-        isUpNext: true,
-      },
-      {
-        title: 'A third',
-        slug: '/3/',
-      },
-      {
-        title: 'A four',
-        slug: '/4/',
-      },
-      {
-        title: 'A five',
-        slug: '/5/',
-      },
-      {
-        title: 'A six',
-        slug: '/6/',
-      },
-    ]
+
     return (
       <div>
         <SEO
@@ -100,7 +108,7 @@ class CourseVideoTemplate extends React.Component {
           </div>
           <div className="col-12 col-sm-12 col-md-12 col-lg-4">
             <Playlist
-              items={playlistItems}
+              items={this.state.playlist}
               autoplay={this.state.autoplay}
               onAutoplay={this.onAutoplay}
             />
@@ -108,10 +116,7 @@ class CourseVideoTemplate extends React.Component {
         </div>
 
         <h1 itemProp="title">{video.frontmatter.title}</h1>
-        <p>
-          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-          suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-        </p>
+        <p>{video.frontmatter.description}</p>
         <VideoTabs />
       </div>
     )
@@ -130,10 +135,31 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
+      fields {
+        slug
+      }
       frontmatter {
         title
         youtubeId
         youtube
+        description
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___order], order: ASC }
+      filter: { fileAbsolutePath: { regex: "/(courses)/" } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            duration
+            youtubeId
+          }
+        }
       }
     }
   }

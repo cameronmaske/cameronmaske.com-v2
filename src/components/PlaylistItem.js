@@ -3,6 +3,7 @@ import { rhythm, scale } from '../utils/typography'
 import Link from 'gatsby-link'
 import style from './playlistItem.module.css'
 import { Play, Loader } from 'react-feather'
+import { formatDuration } from '../utils/duration'
 
 class PlaylistItem extends React.Component {
   render() {
@@ -27,7 +28,9 @@ class PlaylistItem extends React.Component {
           </div>
           <div className={style.colTitle + ' flex-column'}>
             <div className={style.title}>{this.props.title}</div>
-            <div className={style.duration}>20s</div>
+            <div className={style.duration}>
+              {formatDuration(this.props.duration)}
+            </div>
           </div>
         </Link>
       </div>

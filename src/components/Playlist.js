@@ -46,6 +46,7 @@ class Playlist extends React.Component {
                 title={item.title}
                 slug={item.slug}
                 isPlaying={item.isPlaying}
+                duration={item.duration}
                 isUpNext={item.isUpNext}
               />
             )
