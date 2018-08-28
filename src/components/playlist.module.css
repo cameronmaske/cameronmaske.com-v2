@@ -4,6 +4,7 @@
   font-size: 12px;
   text-align: center;
   padding: 0.5rem;
+  color: hsla(0, 0%, 100%, 0.6);
 }
 
 .autoplayIcon {
@@ -48,4 +49,14 @@
 
 .list::-webkit-scrollbar-track-piece {
   background: transparent;
+}
+
+@media (max-width: 991px) {
+  .container {
+    margin-top: 1rem;
+    height: 200px;
+  }
+  .list {
+    height: 165px;
+  }
 }

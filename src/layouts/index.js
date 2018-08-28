@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { rhythm, scale } from '../utils/typography'
+import Subheader from '../components/Subheader'
+import Page from '../components/Page'
 
 // Types faces
 require('typeface-montserrat')
@@ -20,20 +22,7 @@ class Template extends React.Component {
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
       rootPath = __PATH_PREFIX__ + `/`
     }
-    let containerStyle = {
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      maxWidth: rhythm(30),
-      padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-    }
-    if (location.pathname.startsWith('/courses/')) {
-      containerStyle = {
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: rhythm(40),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }
-    }
+
     if (location.pathname === rootPath) {
       header = (
         <h1
@@ -56,32 +45,13 @@ class Template extends React.Component {
         </h1>
       )
     } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            {siteTitle}
-          </Link>
-        </h3>
-      )
+      header = <Subheader>{siteTitle}</Subheader>
     }
     return (
-      <div style={containerStyle}>
+      <Page>
         {header}
         {children()}
-      </div>
+      </Page>
     )
   }
 }

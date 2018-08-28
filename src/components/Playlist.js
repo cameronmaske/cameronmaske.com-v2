@@ -24,7 +24,7 @@ class Playlist extends React.Component {
     return (
       <div className={style.container}>
         <div className={style.autoplay}>
-          Autoplay:{' '}
+          Autoplay{' '}
           <Switch
             onChange={this.toggleAutoplay}
             checked={this.state.autoplay}

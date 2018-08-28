@@ -5,6 +5,8 @@ import get from 'lodash/get'
 import humanizeDuration from 'humanize-duration'
 import Video from '../../../components/Video'
 import SignUpReminder from '../../../components/SignUpReminder'
+import Subheader from '../../../components/Subheader'
+import Page from '../../../components/Page'
 
 const shortEnglishHumanizer = humanizeDuration.humanizer({
   language: 'shortEn',
@@ -42,8 +44,9 @@ class PytestCourseIndex extends React.Component {
       return node.frontmatter.duration + acc
     }, 0)
     return (
-      <div>
+      <Page>
         <SEO title={title} url={url} />
+        <Subheader>Cameron Maske</Subheader>
         <h1>Introduction To Pytest</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -71,7 +74,7 @@ class PytestCourseIndex extends React.Component {
           })}
         </div>
         <SignUpReminder />
-      </div>
+      </Page>
     )
   }
 }

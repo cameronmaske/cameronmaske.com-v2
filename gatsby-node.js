@@ -50,6 +50,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           createPage({
             path: video.node.fields.slug,
             component: courseVideo,
+            layout: 'course',
             context: {
               slug: video.node.fields.slug,
               previous,
@@ -115,7 +116,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 }
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
+  const { createNodeField, createPage } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
@@ -125,4 +126,19 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       value,
     })
   }
+}
+
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage } = boundActionCreators
+
+  return new Promise((resolve, reject) => {
+    if (page.path.startsWith('/courses')) {
+      page.layout = 'course'
+
+      // Update the page.
+      createPage(page)
+    }
+
+    resolve()
+  })
 }

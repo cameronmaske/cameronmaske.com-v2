@@ -1,12 +1,16 @@
 import React from 'react'
 import get from 'lodash/get'
 import { push } from 'gatsby-link'
+import Link from 'gatsby-link'
 
 import SEO from '../components/SEO'
 import VideoTabs from '../components/VideoTabs'
 import YouTube from 'react-youtube'
 import styles from './video.module.css'
 import Playlist from '../components/Playlist'
+import { rhythm } from '../utils/typography'
+import Page from '../components/Page'
+import Subheader from '../components/Subheader'
 
 const formatPlaylist = (edges, video) => {
   return edges
@@ -33,7 +37,11 @@ const formatPlaylist = (edges, video) => {
 class CourseVideoTemplate extends React.Component {
   constructor(props) {
     super(props)
-    const autoplayPref = localStorage.getItem('autoplay')
+    let autoplayPref = false
+    // Hacky, but gets passed build stage.
+    if (typeof window !== 'undefined') {
+      autoplayPref = localStorage.getItem('autoplay')
+    }
     let autoplay = true
     if (autoplayPref) {
       autoplay = JSON.parse(autoplayPref)
@@ -97,27 +105,43 @@ class CourseVideoTemplate extends React.Component {
           article={true}
           url={siteUrl + this.props.location.pathname}
         />
-        <div className="row mb-4">
-          <div className="col-12 col-sm-12 col-md-12 col-lg-8">
-            <YouTube
-              videoId={video.frontmatter.youtubeId}
-              containerClassName={styles.wrapper}
-              opts={youtubeOpts}
-              onEnd={this.onVideoEnd}
-            />
-          </div>
-          <div className="col-12 col-sm-12 col-md-12 col-lg-4">
-            <Playlist
-              items={this.state.playlist}
-              autoplay={this.state.autoplay}
-              onAutoplay={this.onAutoplay}
-            />
+        <div className={styles.videoLayout}>
+          <div
+            className="row mb-4"
+            style={{
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              maxWidth: rhythm(41),
+              padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            }}
+          >
+            <div className="col-12 col-sm-12 col-md-12 col-lg-8">
+              <YouTube
+                videoId={video.frontmatter.youtubeId}
+                containerClassName={styles.wrapper}
+                opts={youtubeOpts}
+                onEnd={this.onVideoEnd}
+              />
+            </div>
+            <div className="col-12 col-sm-12 col-md-12 col-lg-4">
+              <Playlist
+                items={this.state.playlist}
+                autoplay={this.state.autoplay}
+                onAutoplay={this.onAutoplay}
+              />
+            </div>
           </div>
         </div>
-
-        <h1 itemProp="title">{video.frontmatter.title}</h1>
-        <p>{video.frontmatter.description}</p>
-        <VideoTabs />
+        <Page>
+          <h1 itemProp="title" style={{ marginTop: 0 }}>
+            {video.frontmatter.title}
+          </h1>
+          <Link to={'/'}>
+            <h2 style={{ marginTop: 0 }}>Introduction To Pytest</h2>
+          </Link>
+          <p>{video.frontmatter.description}</p>
+          <VideoTabs />
+        </Page>
       </div>
     )
   }
