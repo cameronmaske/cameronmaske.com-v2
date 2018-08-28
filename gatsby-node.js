@@ -3,10 +3,38 @@ const Promise = require('bluebird')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
+  const { createNodeField, createPage } = boundActionCreators
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
+}
+
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage } = boundActionCreators
+
+  return new Promise((resolve, reject) => {
+    if (page.path.startsWith('/courses')) {
+      page.layout = 'course'
+
+      // Update the page.
+      createPage(page)
+    }
+
+    resolve()
+  })
+}
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   const videos = new Promise((resolve, reject) => {
     const courseVideo = path.resolve('./src/templates/course-video.js')
+    const courseLayout = path.resolve('./src/layouts/course.js')
     resolve(
       graphql(
         `
@@ -46,11 +74,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           const previous =
             index === videos.length - 1 ? null : videos[index + 1].node
           const next = index === 0 ? null : videos[index - 1].node
-
           createPage({
             path: video.node.fields.slug,
             component: courseVideo,
-            layout: 'course',
+            layout: courseLayout,
             context: {
               slug: video.node.fields.slug,
               previous,
@@ -113,32 +140,4 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     )
   })
   return Promise.all([videos, posts])
-}
-
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField, createPage } = boundActionCreators
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
-}
-
-exports.onCreatePage = async ({ page, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
-
-  return new Promise((resolve, reject) => {
-    if (page.path.startsWith('/courses')) {
-      page.layout = 'course'
-
-      // Update the page.
-      createPage(page)
-    }
-
-    resolve()
-  })
 }
