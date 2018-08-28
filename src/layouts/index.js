@@ -20,7 +20,20 @@ class Template extends React.Component {
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
       rootPath = __PATH_PREFIX__ + `/`
     }
-
+    let containerStyle = {
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      maxWidth: rhythm(30),
+      padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+    }
+    if (location.pathname.startsWith('/courses/')) {
+      containerStyle = {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        maxWidth: rhythm(40),
+        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      }
+    }
     if (location.pathname === rootPath) {
       header = (
         <h1
@@ -65,14 +78,7 @@ class Template extends React.Component {
       )
     }
     return (
-      <div
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(30),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
+      <div style={containerStyle}>
         {header}
         {children()}
       </div>

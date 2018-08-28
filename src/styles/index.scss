@@ -11,3 +11,11 @@ details > div  {
     line-height: 2rem;
     padding: 1rem;
 }
+
+@import "bootstrap/bootstrap-grid";
+@import "bootstrap/mixins";
+@import "bootstrap/forms";
+@import "bootstrap/utilities/spacing";
+@import "bootstrap/buttons";
+@import "bootstrap/nav";
+@import "bootstrap/list-group";

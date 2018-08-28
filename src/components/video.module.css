@@ -1,0 +1,18 @@
+.container {
+  border: 1px solid #e2e3e7;
+  border-radius: 0.25rem;
+  box-shadow: 0 5px 30px -15px rgba(0, 0, 0, 0.2);
+}
+
+.disabled {
+  background-color: #e2e3e7;
+}
+
+.play {
+  vertical-align: middle;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-family: Montserrat, sans-serif;
+}

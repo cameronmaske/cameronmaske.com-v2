@@ -1,0 +1,51 @@
+.autoplay {
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.autoplayIcon {
+  vertical-align: middle;
+  margin-left: 4px;
+  margin-bottom: 1px;
+}
+
+.container {
+  background: #24262a;
+  color: white;
+  border-radius: 0.25rem;
+  height: 100%;
+  display: block;
+  height: 400px;
+  overflow: hidden;
+}
+
+.list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 364px;
+}
+
+.list::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+.list::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+.list::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.list::-webkit-scrollbar-track-piece {
+  background: transparent;
+}

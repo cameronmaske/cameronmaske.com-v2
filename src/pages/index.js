@@ -11,6 +11,7 @@ class BlogIndex extends React.Component {
     const siteUrl = get(this, 'props.data.site.siteMetadata.siteUrl')
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
+    console.log(posts)
     return (
       <div>
         <SEO title={siteTitle} url={siteUrl} />
@@ -32,7 +33,7 @@ class BlogIndex extends React.Component {
               <small>
                 {node.frontmatter.date} · {node.frontmatter.tags}
               </small>
-              <p dangerouslySetInnerHTML={{ __html: intro }} />
+              g<p dangerouslySetInnerHTML={{ __html: intro }} />
             </div>
           )
         })}
@@ -62,7 +63,10 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/^((?!(courses)).)*$/" } }
+    ) {
       edges {
         node {
           excerpt(pruneLength: 140)
