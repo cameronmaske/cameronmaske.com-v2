@@ -16,7 +16,6 @@ const formatPlaylist = (edges, video) => {
   return edges
     .filter(({ node }) => node.frontmatter.youtubeId)
     .map(({ node }) => {
-      console.log(video)
       return {
         title: node.frontmatter.title,
         slug: node.fields.slug,
@@ -26,7 +25,6 @@ const formatPlaylist = (edges, video) => {
       }
     })
     .reduce((acc, playlistItem, index) => {
-      console.log(acc)
       if (index > 0 && acc[index - 1].isPlaying) {
         playlistItem.isUpNext = true
       }
