@@ -38,9 +38,10 @@ class CourseVideoTemplate extends React.Component {
     let autoplayPref = false
     // Hacky, but gets passed build stage.
     if (typeof window !== 'undefined') {
+      autoplayPref = true
       autoplayPref = localStorage.getItem('autoplay')
     }
-    let autoplay = true
+    let autoplay = false
     if (autoplayPref) {
       autoplay = JSON.parse(autoplayPref)
     }
@@ -91,6 +92,7 @@ class CourseVideoTemplate extends React.Component {
       },
     }
 
+    const windowCheck = typeof window !== 'undefined'
     return (
       <div>
         <SEO
@@ -123,12 +125,30 @@ class CourseVideoTemplate extends React.Component {
             }}
           >
             <div className="col-12 col-sm-12 col-md-12 col-lg-8">
-              <YouTube
-                videoId={video.frontmatter.youtubeId}
-                containerClassName={styles.wrapper}
-                opts={youtubeOpts}
-                onEnd={this.onVideoEnd}
-              />
+              {windowCheck ? (
+                <YouTube
+                  videoId={video.frontmatter.youtubeId}
+                  containerClassName={styles.wrapper}
+                  opts={youtubeOpts}
+                  onEnd={this.onVideoEnd}
+                />
+              ) : (
+                ''
+              )}
+              <noscript>
+                <div className={styles.wrapper}>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={`https://www.youtube.com/embed/${
+                      video.frontmatter.youtubeId
+                    }`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                  />
+                </div>
+              </noscript>
             </div>
             <div className="col-12 col-sm-12 col-md-12 col-lg-4">
               <Playlist
