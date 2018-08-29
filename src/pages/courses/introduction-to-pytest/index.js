@@ -21,34 +21,36 @@ class PytestCourseIndex extends React.Component {
       return node.frontmatter.duration + acc
     }, 0)
     return (
-      <Layout>
-        <SEO
-          title={course.title}
-          url={url}
-          description={course.meta_description}
-          summaryImage={'/static/thumbnails/introduction-to-pytest.png'}
-        />
-        <h1>{course.title}</h1>
-        <p>{course.description}</p>
-        <small>
-          {publishedVideos.length} lessons - {formatDuration(totalDuration)}
-        </small>
-        <div style={{ marginTop: rhythm(1 / 2) }}>
-          {videos.map(({ node }) => {
-            return (
-              <Video
-                key={node.fields.slug}
-                duration={node.frontmatter.duration}
-                slug={node.fields.slug}
-                title={node.frontmatter.title}
-                description={node.frontmatter.description}
-                underConstruction={!node.frontmatter.youtubeId}
-              />
-            )
-          })}
-        </div>
-        <SignUpReminder />
-      </Layout>
+      <div>
+        <Layout>
+          <SEO
+            title={course.title}
+            url={url}
+            description={course.meta_description}
+            summaryImage={'/static/thumbnails/introduction-to-pytest.png'}
+          />
+          <h1>{course.title}</h1>
+          <p>{course.description}</p>
+          <small>
+            {publishedVideos.length} lessons - {formatDuration(totalDuration)}
+          </small>
+          <div style={{ marginTop: rhythm(1 / 2) }}>
+            {videos.map(({ node }) => {
+              return (
+                <Video
+                  key={node.fields.slug}
+                  duration={node.frontmatter.duration}
+                  slug={node.fields.slug}
+                  title={node.frontmatter.title}
+                  description={node.frontmatter.description}
+                  underConstruction={!node.frontmatter.youtubeId}
+                />
+              )
+            })}
+          </div>
+          <SignUpReminder />
+        </Layout>
+      </div>
     )
   }
 }

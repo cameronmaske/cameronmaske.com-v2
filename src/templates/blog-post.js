@@ -20,73 +20,75 @@ class BlogPostTemplate extends React.Component {
     const title = `${post.frontmatter.title} · Cameron Maske`
 
     return (
-      <Layout>
-        <SEO
-          summaryImage={post.frontmatter.summary_image}
-          title={title}
-          description={description}
-          twitterTitle={post.frontmatter.twitter}
-          twitterDescription={post.frontmatter.twitter_description}
-          date={post.frontmatter.date}
-          modifiedDate={post.frontmatter.updated_date}
-          article={true}
-          url={siteUrl + this.props.location.pathname}
-        />
-        <h1 itemProp="title">{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: 'block',
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-          itemProp="pubdate"
-          value={pubDate}
-        >
-          {date.format('MMMM DD, YYYY')}
-        </p>
-        <div
-          itemProp="articleBody"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <Bio full={true} />
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-        <Disqus.DiscussionEmbed
-          shortname={'cameronmaske'}
-          config={{
-            url: siteUrl + this.props.location.pathname,
-            title: post.frontmatter.title,
-          }}
-        />
-      </Layout>
+      <div>
+        <Layout>
+          <SEO
+            summaryImage={post.frontmatter.summary_image}
+            title={title}
+            description={description}
+            twitterTitle={post.frontmatter.twitter}
+            twitterDescription={post.frontmatter.twitter_description}
+            date={post.frontmatter.date}
+            modifiedDate={post.frontmatter.updated_date}
+            article={true}
+            url={siteUrl + this.props.location.pathname}
+          />
+          <h1 itemProp="title">{post.frontmatter.title}</h1>
+          <p
+            style={{
+              ...scale(-1 / 5),
+              display: 'block',
+              marginBottom: rhythm(1),
+              marginTop: rhythm(-1),
+            }}
+            itemProp="pubdate"
+            value={pubDate}
+          >
+            {date.format('MMMM DD, YYYY')}
+          </p>
+          <div
+            itemProp="articleBody"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          <hr
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />
+          <Bio full={true} />
+          <ul
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              listStyle: 'none',
+              padding: 0,
+            }}
+          >
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </ul>
+          <Disqus.DiscussionEmbed
+            shortname={'cameronmaske'}
+            config={{
+              url: siteUrl + this.props.location.pathname,
+              title: post.frontmatter.title,
+            }}
+          />
+        </Layout>
+      </div>
     )
   }
 }

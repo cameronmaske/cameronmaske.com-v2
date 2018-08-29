@@ -6,6 +6,7 @@ import config from '../../config'
 export default ({ children }) => {
   return (
     <Page>
+      <code>Layout</code>
       <Subheader>{config.defaultHeader}</Subheader>
       {children}
     </Page>

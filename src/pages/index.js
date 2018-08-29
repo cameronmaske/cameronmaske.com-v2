@@ -13,42 +13,44 @@ class BlogIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
     return (
-      <HomeLayout>
-        <SEO title={siteTitle} url={siteUrl} />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          const intro = get(node, 'frontmatter.intro') || node.excerpt
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>
-                {node.frontmatter.date} · {node.frontmatter.tags}
-              </small>
-              g<p dangerouslySetInnerHTML={{ __html: intro }} />
-            </div>
-          )
-        })}
-        <div>
-          <h3>Side Projects</h3>
-          <ul className="unlisted">
-            <li>
-              <a href="https://closedlooplabs.com">Noise Blocker</a>
-            </li>
-            <li>
-              <a href="https://tryoutglasses.com">Try Out Glasses</a>
-            </li>
-          </ul>
-        </div>
-      </HomeLayout>
+      <div>
+        <HomeLayout>
+          <SEO title={siteTitle} url={siteUrl} />
+          <Bio />
+          {posts.map(({ node }) => {
+            const title = get(node, 'frontmatter.title') || node.fields.slug
+            const intro = get(node, 'frontmatter.intro') || node.excerpt
+            return (
+              <div key={node.fields.slug}>
+                <h3
+                  style={{
+                    marginBottom: rhythm(1 / 4),
+                  }}
+                >
+                  <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small>
+                  {node.frontmatter.date} · {node.frontmatter.tags}
+                </small>
+                g<p dangerouslySetInnerHTML={{ __html: intro }} />
+              </div>
+            )
+          })}
+          <div>
+            <h3>Side Projects</h3>
+            <ul className="unlisted">
+              <li>
+                <a href="https://closedlooplabs.com">Noise Blocker</a>
+              </li>
+              <li>
+                <a href="https://tryoutglasses.com">Try Out Glasses</a>
+              </li>
+            </ul>
+          </div>
+        </HomeLayout>
+      </div>
     )
   }
 }

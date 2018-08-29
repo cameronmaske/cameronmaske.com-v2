@@ -1,5 +1,10 @@
 import React from 'react'
 
 export default ({ children }) => {
-  return <div>{children}</div>
+  return (
+    <div>
+      <code>Blank Layout</code>
+      {children}
+    </div>
+  )
 }

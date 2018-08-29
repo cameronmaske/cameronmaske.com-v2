@@ -92,79 +92,81 @@ class CourseVideoTemplate extends React.Component {
 
     const windowCheck = typeof window !== 'undefined'
     return (
-      <BlankLayout>
-        <SEO
-          summaryImage={video.frontmatter.summary_image}
-          title={title}
-          description={description}
-          twitterTitle={video.frontmatter.twitter}
-          twitterDescription={video.frontmatter.twitter_description}
-          date={video.frontmatter.date}
-          modifiedDate={video.frontmatter.updated_date}
-          article={true}
-          url={siteUrl + this.props.location.pathname}
-          video={{
-            name: video.frontmatter.title,
-            description: video.frontmatter.description,
-            thumbnailUrl: [video.frontmatter.thumbnailUrl],
-            uploadDate: video.frontmatter.uploadDate,
-            duration: video.frontmatter.duration8601,
-            embedUrl: video.frontmatter.embedUrl,
-          }}
-        />
-        <div className={styles.videoLayout}>
-          <div
-            className="row mb-4"
-            style={{
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              maxWidth: rhythm(41),
-              padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      <div>
+        <BlankLayout>
+          <SEO
+            summaryImage={video.frontmatter.summary_image}
+            title={title}
+            description={description}
+            twitterTitle={video.frontmatter.twitter}
+            twitterDescription={video.frontmatter.twitter_description}
+            date={video.frontmatter.date}
+            modifiedDate={video.frontmatter.updated_date}
+            article={true}
+            url={siteUrl + this.props.location.pathname}
+            video={{
+              name: video.frontmatter.title,
+              description: video.frontmatter.description,
+              thumbnailUrl: [video.frontmatter.thumbnailUrl],
+              uploadDate: video.frontmatter.uploadDate,
+              duration: video.frontmatter.duration8601,
+              embedUrl: video.frontmatter.embedUrl,
             }}
-          >
-            <div className="col-12 col-sm-12 col-md-12 col-lg-8">
-              {windowCheck ? (
-                <YouTube
-                  videoId={video.frontmatter.youtubeId}
-                  containerClassName={styles.wrapper}
-                  opts={youtubeOpts}
-                  onEnd={this.onVideoEnd}
-                />
-              ) : null}
-              <noscript>
-                <div className={styles.wrapper}>
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={`https://www.youtube.com/embed/${
-                      video.frontmatter.youtubeId
-                    }`}
-                    frameBorder="0"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
+          />
+          <div className={styles.videoLayout}>
+            <div
+              className="row mb-4"
+              style={{
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                maxWidth: rhythm(41),
+                padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+              }}
+            >
+              <div className="col-12 col-sm-12 col-md-12 col-lg-8">
+                {windowCheck ? (
+                  <YouTube
+                    videoId={video.frontmatter.youtubeId}
+                    containerClassName={styles.wrapper}
+                    opts={youtubeOpts}
+                    onEnd={this.onVideoEnd}
                   />
-                </div>
-              </noscript>
-            </div>
-            <div className="col-12 col-sm-12 col-md-12 col-lg-4">
-              <Playlist
-                items={this.state.playlist}
-                autoplay={this.state.autoplay}
-                onAutoplay={this.onAutoplay}
-              />
+                ) : null}
+                <noscript>
+                  <div className={styles.wrapper}>
+                    <iframe
+                      width="560"
+                      height="315"
+                      src={`https://www.youtube.com/embed/${
+                        video.frontmatter.youtubeId
+                      }`}
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                    />
+                  </div>
+                </noscript>
+              </div>
+              <div className="col-12 col-sm-12 col-md-12 col-lg-4">
+                <Playlist
+                  items={this.state.playlist}
+                  autoplay={this.state.autoplay}
+                  onAutoplay={this.onAutoplay}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <Page>
-          <h1 itemProp="title" style={{ marginTop: 0 }}>
-            {video.frontmatter.title}
-          </h1>
-          <Link to={course.path}>
-            <h2 style={{ marginTop: 0 }}>{course.title}</h2>
-          </Link>
-          <p>{video.frontmatter.description}</p>
-        </Page>
-      </BlankLayout>
+          <Page>
+            <h1 itemProp="title" style={{ marginTop: 0 }}>
+              {video.frontmatter.title}
+            </h1>
+            <Link to={course.path}>
+              <h2 style={{ marginTop: 0 }}>{course.title}</h2>
+            </Link>
+            <p>{video.frontmatter.description}</p>
+          </Page>
+        </BlankLayout>
+      </div>
     )
   }
 }
