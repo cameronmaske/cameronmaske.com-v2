@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import config from '../config'
 import PropTypes from 'prop-types'
 import favicon from '../assets/favicon.ico'
+import { withPrefix } from 'gatsby-link'
 
 class SEO extends Component {
   render() {
@@ -10,6 +11,7 @@ class SEO extends Component {
     const siteDescription = config.description
     const siteTitle = config.title
     const siteAuthor = config.author
+
     const {
       title,
       description,
@@ -21,6 +23,7 @@ class SEO extends Component {
       url,
       date,
       modifiedDate,
+      video,
     } = this.props
 
     let meta = [
@@ -92,11 +95,12 @@ class SEO extends Component {
       meta = [...meta, { property: 'og:type', content: 'article ' }]
     }
     if (summaryImage) {
+      const summaryImagePrex = withPrefix(summaryImage)
       meta = [
         ...meta,
         {
           property: 'og:image',
-          content: summaryImage,
+          content: summaryImagePrex,
         },
         {
           name: 'twitter:card',
@@ -104,17 +108,42 @@ class SEO extends Component {
         },
         {
           name: 'twitter:image',
-          content: summaryImage,
+          content: summaryImagePrex,
         },
       ]
     }
+    let schemaOrgJSONLD = null
+    if (video) {
+      schemaOrgJSONLD = {
+        '@context': 'http://schema.org',
+        '@type': 'VideoObject',
+        name: video.name,
+        description: video.description,
+        thumbnailUrl: [config.siteUrl + withPrefix(video.thumbnailUrl)],
+        uploadDate: video.uploadDate,
+        duration: video.duration,
+        embedUrl: video.embedUrl,
+      }
+      for (let [key, value] of Object.entries(schemaOrgJSONLD)) {
+        if (!value) {
+          console.error(`${key} is null for JSONLD`)
+        }
+      }
+    }
+
     return (
       <Helmet
         htmlAttributes={{ lang: 'en' }}
         meta={meta}
         title={title || siteTitle}
         link={[{ rel: 'shortcut icon', href: `${favicon}` }]}
-      />
+      >
+        {schemaOrgJSONLD ? (
+          <script type="application/ld+json">
+            {JSON.stringify(schemaOrgJSONLD)}
+          </script>
+        ) : null}
+      </Helmet>
     )
   }
 }

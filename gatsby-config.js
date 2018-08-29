@@ -99,5 +99,6 @@ module.exports = {
         mergeCachingHeaders: true,
       },
     },
+    `gatsby-plugin-purify-css`,
   ],
 }
