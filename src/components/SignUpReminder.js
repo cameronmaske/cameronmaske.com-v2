@@ -158,16 +158,14 @@ class SignUpReminder extends React.Component {
               </div>
             </form>
             <div className={style.info}>
-              {status === 'sending' && (
-                <div style={{ color: 'blue' }}>Subscribing</div>
-              )}
-              {status === 'error' && (
+              {this.state.status === 'sending' && <div>Subscribing</div>}
+              {this.state.status === 'error' && (
                 <div
                   style={{ color: 'red' }}
                   dangerouslySetInnerHTML={{ __html: message }}
                 />
               )}
-              {status === 'success' && (
+              {this.state.status === 'success' && (
                 <div style={{ color: 'green' }}>{message}</div>
               )}
             </div>
