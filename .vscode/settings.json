@@ -4,5 +4,11 @@
   // Enable per-language
   "[javascript]": {
     "editor.formatOnSave": true
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "xml": {
+      "attr_quotes": "single"
+    }
   }
 }
