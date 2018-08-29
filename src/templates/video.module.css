@@ -17,6 +17,7 @@
 
 .videoLayout {
   background: #171e27;
+  background: red;
 }
 
 .text p {
@@ -29,13 +30,16 @@
 @media (max-width: 991px) {
   .videoWrapper {
     padding: 0 !important;
-    padding-top: 10px !important;
-    margin-left: -5px !important;
-    margin-right: -5px !important;
+    padding-top: 0.5rem !important;
     width: 100% !important;
     margin-bottom: 0px !important;
   }
   .videoLayout {
     margin-bottom: 0px;
+  }
+  .slimCol {
+    padding: 0 !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
 }

@@ -55,6 +55,7 @@
   .container {
     margin-top: 0.5rem;
     height: 200px;
+    margin-bottom: 0.5rem !important;
   }
   .list {
     height: 165px;

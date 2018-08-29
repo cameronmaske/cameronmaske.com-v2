@@ -124,7 +124,11 @@ class CourseVideoTemplate extends React.Component {
                 padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
               }}
             >
-              <div className="col-12 col-sm-12 col-md-12 col-lg-8">
+              <div
+                className={
+                  'col-12 col-sm-12 col-md-12 col-lg-8 ' + styles.slimCol
+                }
+              >
                 {windowCheck ? (
                   <YouTube
                     videoId={video.frontmatter.youtubeId}
@@ -148,7 +152,11 @@ class CourseVideoTemplate extends React.Component {
                   </div>
                 </noscript>
               </div>
-              <div className="col-12 col-sm-12 col-md-12 col-lg-4">
+              <div
+                className={
+                  'col-12 col-sm-12 col-md-12 col-lg-4 ' + styles.slimCol
+                }
+              >
                 <Playlist
                   items={this.state.playlist}
                   autoplay={this.state.autoplay}
