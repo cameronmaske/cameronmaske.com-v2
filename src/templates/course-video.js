@@ -96,7 +96,7 @@ class CourseVideoTemplate extends React.Component {
       <div>
         <BlankLayout>
           <SEO
-            summaryImage={video.frontmatter.summary_image}
+            summaryImage={video.frontmatter.thumbnailUrl}
             title={title}
             description={description}
             twitterTitle={video.frontmatter.twitter}
