@@ -116,7 +116,7 @@ class CourseVideoTemplate extends React.Component {
           />
           <div className={styles.videoLayout}>
             <div
-              className="row mb-4"
+              className={'row mb-4 ' + styles.videoWrapper}
               style={{
                 marginLeft: 'auto',
                 marginRight: 'auto',

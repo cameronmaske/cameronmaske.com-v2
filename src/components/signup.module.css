@@ -36,3 +36,18 @@
   margin-right: auto;
   max-width: 80%;
 }
+
+@media (max-width: 991px) {
+  .formGroup {
+    margin-bottom: 0 !important;
+  }
+  .formControl {
+    width: 100%;
+  }
+
+  .button {
+    margin: 0;
+    margin-top: 5px;
+    width: 100%;
+  }
+}

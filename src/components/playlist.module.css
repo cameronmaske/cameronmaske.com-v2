@@ -53,7 +53,7 @@
 
 @media (max-width: 991px) {
   .container {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     height: 200px;
   }
   .list {

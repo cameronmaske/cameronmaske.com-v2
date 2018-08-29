@@ -137,11 +137,11 @@ class SignUpReminder extends React.Component {
               className={'form-inline ' + style.form}
               onSubmit={this.onSubmit}
             >
-              <div className={'form-group mx-auto'}>
+              <div className={'form-group mx-auto ' + style.formGroup}>
                 <input
                   type="email"
                   name="EMAIL"
-                  className={'form-control'}
+                  className={'form-control ' + style.formControl}
                   placeholder="Your email address"
                   onBlur={this.onBlur}
                   ref={this.emailInput}
@@ -157,18 +157,21 @@ class SignUpReminder extends React.Component {
                 </button>
               </div>
             </form>
-            <div className={style.info}>
-              {this.state.status === 'sending' && <div>Subscribing</div>}
-              {this.state.status === 'error' && (
-                <div
-                  style={{ color: 'red' }}
-                  dangerouslySetInnerHTML={{ __html: message }}
-                />
-              )}
-              {this.state.status === 'success' && (
-                <div style={{ color: 'green' }}>{message}</div>
-              )}
-            </div>
+            {this.state.status === 'sending' && (
+              <div className={style.info}>Subscribing</div>
+            )}
+            {this.state.status === 'error' && (
+              <div
+                style={{ color: 'red' }}
+                className={style.info}
+                dangerouslySetInnerHTML={{ __html: message }}
+              />
+            )}
+            {this.state.status === 'success' && (
+              <div className={style.info} style={{ color: 'green' }}>
+                {message}
+              </div>
+            )}
           </div>
         ) : this.state.message ? (
           ''

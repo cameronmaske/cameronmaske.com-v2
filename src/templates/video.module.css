@@ -25,3 +25,17 @@
 .text {
   margin-bottom: 2rem;
 }
+
+@media (max-width: 991px) {
+  .videoWrapper {
+    padding: 0 !important;
+    padding-top: 10px !important;
+    margin-left: -5px !important;
+    margin-right: -5px !important;
+    width: 100% !important;
+    margin-bottom: 0px !important;
+  }
+  .videoLayout {
+    margin-bottom: 0px;
+  }
+}
