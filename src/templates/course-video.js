@@ -141,7 +141,7 @@ class CourseVideoTemplate extends React.Component {
                     }`}
                     frameBorder="0"
                     allow="autoplay; encrypted-media"
-                    allowfullscreen
+                    allowFullScreen
                   />
                 </div>
               </noscript>
