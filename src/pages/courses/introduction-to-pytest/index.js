@@ -31,6 +31,7 @@ class PytestCourseIndex extends React.Component {
           />
           <h1>{course.title}</h1>
           <p>{course.description}</p>
+          <SignUpReminder />
           <small>
             {publishedVideos.length} lessons - {formatDuration(totalDuration)}
           </small>
@@ -48,7 +49,6 @@ class PytestCourseIndex extends React.Component {
               )
             })}
           </div>
-          <SignUpReminder />
         </Layout>
       </div>
     )

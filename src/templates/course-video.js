@@ -11,6 +11,7 @@ import { rhythm } from '../utils/typography'
 import Page from '../components/Page'
 import config from '../config'
 import BlankLayout from '../components/layouts/BlankLayout'
+import SignUpReminder from '../components/SignUpReminder'
 
 // TODO
 // import VideoTabs from '../components/VideoTabs'
@@ -164,6 +165,7 @@ class CourseVideoTemplate extends React.Component {
               <h2 style={{ marginTop: 0 }}>{course.title}</h2>
             </Link>
             <p>{video.frontmatter.description}</p>
+            <SignUpReminder />
           </Page>
         </BlankLayout>
       </div>
