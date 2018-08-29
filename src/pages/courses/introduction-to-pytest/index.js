@@ -26,8 +26,8 @@ class PytestCourseIndex extends React.Component {
           <SEO
             title={course.title}
             url={url}
-            description={course.meta_description}
-            summaryImage={'/static/thumbnails/introduction-to-pytest.png'}
+            description={course.metaDescription}
+            summaryImage={course.summaryImage}
           />
           <h1>{course.title}</h1>
           <p>{course.description}</p>

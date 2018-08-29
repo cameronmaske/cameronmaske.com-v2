@@ -8,10 +8,11 @@ module.exports = {
   siteUrl: 'https://www.cameronmaske.com',
   courses: {
     pytest: {
-      title: 'Introduction To Python Testing With Pytest',
-      description: `This courses covers the basics of testing with Pytest. Short to the point videos will guide you over Pytest most important features and how to practically make use of them.`,
-      meta_description: 'Learn how to start testing Python with Pytest.',
-      summary_image: '',
+      title: 'Introduction To Pytest',
+      description: `This courses of short, instructive videos covers the basics of testing Python with pytest. If you are new to testing, or too pytest, these are designed to give you an overview on testing best practices and pytest's most useful feature for testing bliss.`,
+      metaDescription:
+        'A series of short, instructive videos covering the basics of testing Python with pytest. Learn everything from fixtures, to mocking, to debugging.',
+      summaryImage: '/static/thumbnails/introduction-to-pytest.png',
       path: '/courses/introduction-to-pytest/',
     },
   },

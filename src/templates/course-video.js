@@ -164,7 +164,10 @@ class CourseVideoTemplate extends React.Component {
             <Link to={course.path}>
               <h2 style={{ marginTop: 0 }}>{course.title}</h2>
             </Link>
-            <p>{video.frontmatter.description}</p>
+            <div
+              class={styles.text}
+              dangerouslySetInnerHTML={{ __html: video.html }}
+            />
             <SignUpReminder />
           </Page>
         </BlankLayout>
@@ -185,6 +188,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
+      html
       fields {
         slug
       }

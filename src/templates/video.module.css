@@ -18,3 +18,10 @@
 .videoLayout {
   background: #171e27;
 }
+
+.text p {
+  margin-bottom: 1rem;
+}
+.text {
+  margin-bottom: 2rem;
+}
