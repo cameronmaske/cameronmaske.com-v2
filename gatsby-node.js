@@ -34,7 +34,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   const videos = new Promise((resolve, reject) => {
     const courseVideo = path.resolve('./src/templates/course-video.js')
-    const courseLayout = path.resolve('./src/layouts/course.js')
     resolve(
       graphql(
         `
@@ -77,7 +76,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           createPage({
             path: video.node.fields.slug,
             component: courseVideo,
-            layout: courseLayout,
+            layout: `course`,
             context: {
               slug: video.node.fields.slug,
               previous,
