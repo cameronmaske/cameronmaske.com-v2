@@ -4,6 +4,7 @@ import get from 'lodash/get'
 
 import SEO from '../components/SEO'
 import Bio from '../components/Bio'
+import HomeLayout from '../components/layouts/HomeLayout'
 import { rhythm } from '../utils/typography'
 
 class BlogIndex extends React.Component {
@@ -12,7 +13,7 @@ class BlogIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
     return (
-      <div>
+      <HomeLayout>
         <SEO title={siteTitle} url={siteUrl} />
         <Bio />
         {posts.map(({ node }) => {
@@ -47,7 +48,7 @@ class BlogIndex extends React.Component {
             </li>
           </ul>
         </div>
-      </div>
+      </HomeLayout>
     )
   }
 }

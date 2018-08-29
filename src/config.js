@@ -1,5 +1,6 @@
 module.exports = {
   title: 'Coding, testings and startups · Cameron Maske',
+  defaultHeader: 'Cameron Maske',
   author: 'Cameron Maske',
   twitter: '@cameronmaske',
   description:

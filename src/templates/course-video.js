@@ -4,13 +4,16 @@ import { push } from 'gatsby-link'
 import Link from 'gatsby-link'
 
 import SEO from '../components/SEO'
-import VideoTabs from '../components/VideoTabs'
 import YouTube from 'react-youtube'
 import styles from './video.module.css'
 import Playlist from '../components/Playlist'
 import { rhythm } from '../utils/typography'
 import Page from '../components/Page'
 import config from '../config'
+import BlankLayout from '../components/layouts/BlankLayout'
+
+// TODO
+// import VideoTabs from '../components/VideoTabs'
 
 const formatPlaylist = (edges, video) => {
   return edges
@@ -79,12 +82,6 @@ class CourseVideoTemplate extends React.Component {
     const video = this.state.video
     const title = `${video.frontmatter.title} · ${course.title}`
     const description = video.frontmatter.description
-
-    const playlistItems = formatPlaylist(
-      this.props.data.allMarkdownRemark.edges,
-      video
-    )
-
     const youtubeOpts = {
       playerVars: {
         autoplay: this.state.autoplay,
@@ -95,7 +92,7 @@ class CourseVideoTemplate extends React.Component {
 
     const windowCheck = typeof window !== 'undefined'
     return (
-      <div>
+      <BlankLayout>
         <SEO
           summaryImage={video.frontmatter.summary_image}
           title={title}
@@ -133,9 +130,7 @@ class CourseVideoTemplate extends React.Component {
                   opts={youtubeOpts}
                   onEnd={this.onVideoEnd}
                 />
-              ) : (
-                ''
-              )}
+              ) : null}
               <noscript>
                 <div className={styles.wrapper}>
                   <iframe
@@ -169,7 +164,7 @@ class CourseVideoTemplate extends React.Component {
           </Link>
           <p>{video.frontmatter.description}</p>
         </Page>
-      </div>
+      </BlankLayout>
     )
   }
 }

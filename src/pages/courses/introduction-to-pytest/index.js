@@ -6,6 +6,7 @@ import humanizeDuration from 'humanize-duration'
 import Video from '../../../components/Video'
 import SignUpReminder from '../../../components/SignUpReminder'
 import config from '../../../config'
+import Layout from '../../../components/layouts/Layout'
 
 const shortEnglishHumanizer = humanizeDuration.humanizer({
   language: 'shortEn',
@@ -43,7 +44,7 @@ class PytestCourseIndex extends React.Component {
       return node.frontmatter.duration + acc
     }, 0)
     return (
-      <div>
+      <Layout>
         <SEO
           title={course.title}
           url={url}
@@ -70,7 +71,7 @@ class PytestCourseIndex extends React.Component {
           })}
         </div>
         <SignUpReminder />
-      </div>
+      </Layout>
     )
   }
 }

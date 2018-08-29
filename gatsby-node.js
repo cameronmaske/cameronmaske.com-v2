@@ -16,19 +16,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 }
 
-// exports.onCreatePage = async ({ page, boundActionCreators }) => {
-//   const { createPage } = boundActionCreators
-
-//   return new Promise((resolve, reject) => {
-//     page.layout = 'blog'
-//     if (page.path.startsWith('/courses')) {
-//       page.layout = 'course'
-//     }
-//     // Update the page.
-//     createPage(page)
-//     resolve()
-//   })
-// }
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   const videos = new Promise((resolve, reject) => {
@@ -68,17 +55,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         })
 
         _.each(videos, (video, index) => {
-          const previous =
-            index === videos.length - 1 ? null : videos[index + 1].node
-          const next = index === 0 ? null : videos[index - 1].node
           createPage({
             path: video.node.fields.slug,
             component: courseVideo,
-            // layout: `course`,
             context: {
               slug: video.node.fields.slug,
-              previous,
-              next,
             },
           })
         })

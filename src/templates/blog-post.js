@@ -7,6 +7,7 @@ import Bio from '../components/Bio'
 import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
 import dayjs from 'dayjs'
+import Layout from '../components/layouts/Layout'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -19,7 +20,7 @@ class BlogPostTemplate extends React.Component {
     const title = `${post.frontmatter.title} · Cameron Maske`
 
     return (
-      <div>
+      <Layout>
         <SEO
           summaryImage={post.frontmatter.summary_image}
           title={title}
@@ -85,7 +86,7 @@ class BlogPostTemplate extends React.Component {
             title: post.frontmatter.title,
           }}
         />
-      </div>
+      </Layout>
     )
   }
 }
