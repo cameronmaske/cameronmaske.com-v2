@@ -17,7 +17,7 @@ class SignUpReminder extends React.Component {
           This course is currently under construction. <br />
           Sign up recieve email reminders when new lessons are released.
         </p>
-        <form class="form-inline">
+        <form className="form-inline">
           <div className="form-group mx-auto">
             <input
               type="email"

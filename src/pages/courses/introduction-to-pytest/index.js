@@ -5,8 +5,7 @@ import get from 'lodash/get'
 import humanizeDuration from 'humanize-duration'
 import Video from '../../../components/Video'
 import SignUpReminder from '../../../components/SignUpReminder'
-import Subheader from '../../../components/Subheader'
-import Page from '../../../components/Page'
+import config from '../../../config'
 
 const shortEnglishHumanizer = humanizeDuration.humanizer({
   language: 'shortEn',
@@ -33,7 +32,7 @@ const formatDuration = seconds => {
 
 class PytestCourseIndex extends React.Component {
   render() {
-    const title = 'Getting Started With Pytest Course'
+    const course = config.courses.pytest
     const siteUrl = get(this, 'props.data.site.siteMetadata.siteUrl')
     const videos = get(this, 'props.data.allMarkdownRemark.edges')
     const url = siteUrl + this.props.location.pathname
@@ -45,16 +44,13 @@ class PytestCourseIndex extends React.Component {
     }, 0)
     return (
       <div>
-        <SEO title={title} url={url} />
-        <h1>Introduction To Pytest</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
+        <SEO
+          title={course.title}
+          url={url}
+          description={course.meta_description}
+        />
+        <h1>{course.title}</h1>
+        <p>{course.description}</p>
         <small>
           {publishedVideos.length} lessons - {formatDuration(totalDuration)}
         </small>

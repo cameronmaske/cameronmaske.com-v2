@@ -10,6 +10,7 @@ class SEO extends Component {
     const siteDescription = config.description
     const siteTitle = config.title
     const siteAuthor = config.author
+
     const {
       title,
       description,
@@ -21,6 +22,7 @@ class SEO extends Component {
       url,
       date,
       modifiedDate,
+      video,
     } = this.props
 
     let meta = [
@@ -108,13 +110,38 @@ class SEO extends Component {
         },
       ]
     }
+    let schemaOrgJSONLD = null
+    if (video) {
+      schemaOrgJSONLD = {
+        '@context': 'http://schema.org',
+        '@type': 'VideoObject',
+        name: video.name,
+        description: video.description,
+        thumbnailUrl: [config.siteUrl + video.thumbnailUrl],
+        uploadDate: video.uploadDate,
+        duration: video.duration,
+        embedUrl: video.embedUrl,
+      }
+      for (let [key, value] of Object.entries(schemaOrgJSONLD)) {
+        if (!value) {
+          console.error(`${key} is null for JSONLD`)
+        }
+      }
+    }
+
     return (
       <Helmet
         htmlAttributes={{ lang: 'en' }}
         meta={meta}
         title={title || siteTitle}
         link={[{ rel: 'shortcut icon', href: `${favicon}` }]}
-      />
+      >
+        {schemaOrgJSONLD ? (
+          <script type="application/ld+json">
+            {JSON.stringify(schemaOrgJSONLD)}
+          </script>
+        ) : null}
+      </Helmet>
     )
   }
 }

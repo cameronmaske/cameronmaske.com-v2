@@ -50,7 +50,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   frontmatter {
                     title
                     duration
-                    youtube
                     youtubeId
                   }
                 }

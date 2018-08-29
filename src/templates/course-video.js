@@ -10,7 +10,7 @@ import styles from './video.module.css'
 import Playlist from '../components/Playlist'
 import { rhythm } from '../utils/typography'
 import Page from '../components/Page'
-import Subheader from '../components/Subheader'
+import config from '../config'
 
 const formatPlaylist = (edges, video) => {
   return edges
@@ -72,9 +72,10 @@ class CourseVideoTemplate extends React.Component {
   }
 
   render() {
+    const course = config.courses.pytest
     const siteUrl = get(this.props, 'data.site.siteMetadata.siteUrl')
     const video = this.state.video
-    const title = `${video.frontmatter.title} · Cameron Maske`
+    const title = `${video.frontmatter.title} · ${course.title}`
     const description = video.frontmatter.description
 
     const playlistItems = formatPlaylist(
@@ -102,6 +103,14 @@ class CourseVideoTemplate extends React.Component {
           modifiedDate={video.frontmatter.updated_date}
           article={true}
           url={siteUrl + this.props.location.pathname}
+          video={{
+            name: video.frontmatter.title,
+            description: video.frontmatter.description,
+            thumbnailUrl: [video.frontmatter.thumbnailUrl],
+            uploadDate: video.frontmatter.uploadDate,
+            duration: video.frontmatter.duration8601,
+            embedUrl: video.frontmatter.embedUrl,
+          }}
         />
         <div className={styles.videoLayout}>
           <div
@@ -134,11 +143,10 @@ class CourseVideoTemplate extends React.Component {
           <h1 itemProp="title" style={{ marginTop: 0 }}>
             {video.frontmatter.title}
           </h1>
-          <Link to={'/'}>
-            <h2 style={{ marginTop: 0 }}>Introduction To Pytest</h2>
+          <Link to={course.path}>
+            <h2 style={{ marginTop: 0 }}>{course.title}</h2>
           </Link>
           <p>{video.frontmatter.description}</p>
-          <VideoTabs />
         </Page>
       </div>
     )
@@ -163,8 +171,11 @@ export const pageQuery = graphql`
       frontmatter {
         title
         youtubeId
-        youtube
         description
+        thumbnailUrl
+        embedUrl
+        uploadDate
+        duration8601
       }
     }
     allMarkdownRemark(

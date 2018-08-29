@@ -38,7 +38,7 @@ class BlogIndex extends React.Component {
         })}
         <div>
           <h3>Side Projects</h3>
-          <ul class="unlisted">
+          <ul className="unlisted">
             <li>
               <a href="https://closedlooplabs.com">Noise Blocker</a>
             </li>

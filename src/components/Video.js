@@ -26,7 +26,7 @@ class Video extends React.Component {
       >
         <div
           className="col align-self-center"
-          style={{ width: '100px', 'flex-grow': 0 }}
+          style={{ width: '100px', flexGrow: 0 }}
         >
           {this.props.underConstruction ? (
             <Lock className={styles.play} size={rhythm(0.75)} />

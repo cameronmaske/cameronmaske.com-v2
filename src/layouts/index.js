@@ -29,7 +29,7 @@ class Template extends React.Component {
     }
     if (
       location.pathname.includes('course') &&
-      location.pathname.includes('/v/')
+      location.pathname.includes('/watch/')
     ) {
       return <div>{children()}</div>
     } else {
