@@ -44,9 +44,8 @@ class PytestCourseIndex extends React.Component {
       return node.frontmatter.duration + acc
     }, 0)
     return (
-      <Page>
+      <div>
         <SEO title={title} url={url} />
-        <Subheader>Cameron Maske</Subheader>
         <h1>Introduction To Pytest</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -74,7 +73,7 @@ class PytestCourseIndex extends React.Component {
           })}
         </div>
         <SignUpReminder />
-      </Page>
+      </div>
     )
   }
 }

@@ -16,19 +16,19 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 }
 
-exports.onCreatePage = async ({ page, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+// exports.onCreatePage = async ({ page, boundActionCreators }) => {
+//   const { createPage } = boundActionCreators
 
-  return new Promise((resolve, reject) => {
-    page.layout = 'blog'
-    if (page.path.startsWith('/courses')) {
-      page.layout = 'course'
-    }
-    // Update the page.
-    createPage(page)
-    resolve()
-  })
-}
+//   return new Promise((resolve, reject) => {
+//     page.layout = 'blog'
+//     if (page.path.startsWith('/courses')) {
+//       page.layout = 'course'
+//     }
+//     // Update the page.
+//     createPage(page)
+//     resolve()
+//   })
+// }
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   const videos = new Promise((resolve, reject) => {
@@ -75,7 +75,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           createPage({
             path: video.node.fields.slug,
             component: courseVideo,
-            layout: `course`,
+            // layout: `course`,
             context: {
               slug: video.node.fields.slug,
               previous,
@@ -127,7 +127,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           createPage({
             path: post.node.fields.slug,
             component: blogPost,
-            layout: `blog`,
             context: {
               slug: post.node.fields.slug,
               previous,
