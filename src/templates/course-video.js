@@ -35,13 +35,14 @@ const formatPlaylist = (edges, video) => {
 class CourseVideoTemplate extends React.Component {
   constructor(props) {
     super(props)
+    // Turn off autoplay if javascript disabled.
     let autoplayPref = false
+    let autoplay = false
     // Hacky, but gets passed build stage.
     if (typeof window !== 'undefined') {
-      autoplayPref = true
+      autoplay = true
       autoplayPref = localStorage.getItem('autoplay')
     }
-    let autoplay = false
     if (autoplayPref) {
       autoplay = JSON.parse(autoplayPref)
     }
