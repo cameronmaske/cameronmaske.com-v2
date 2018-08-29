@@ -2,34 +2,11 @@ import React from 'react'
 import SEO from '../../../components/SEO'
 import { rhythm } from '../../../utils/typography'
 import get from 'lodash/get'
-import humanizeDuration from 'humanize-duration'
 import Video from '../../../components/Video'
 import SignUpReminder from '../../../components/SignUpReminder'
 import config from '../../../config'
 import Layout from '../../../components/layouts/Layout'
-
-const shortEnglishHumanizer = humanizeDuration.humanizer({
-  language: 'shortEn',
-  languages: {
-    shortEn: {
-      y: () => 'y',
-      mo: () => 'mo',
-      w: () => 'w',
-      d: () => 'd',
-      h: () => 'h',
-      m: () => 'm',
-      s: () => 's',
-      ms: () => 'ms',
-    },
-  },
-})
-
-const formatDuration = seconds => {
-  return shortEnglishHumanizer(seconds * 1000, {
-    conjunction: ' ',
-    serialComma: false,
-  }).replace(/ /g, '')
-}
+import { formatDuration } from '../../../utils/duration'
 
 class PytestCourseIndex extends React.Component {
   render() {
