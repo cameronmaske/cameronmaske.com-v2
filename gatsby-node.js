@@ -20,13 +20,12 @@ exports.onCreatePage = async ({ page, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
   return new Promise((resolve, reject) => {
+    page.layout = 'blog'
     if (page.path.startsWith('/courses')) {
       page.layout = 'course'
-
-      // Update the page.
-      createPage(page)
     }
-
+    // Update the page.
+    createPage(page)
     resolve()
   })
 }
@@ -128,6 +127,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           createPage({
             path: post.node.fields.slug,
             component: blogPost,
+            layout: `blog`,
             context: {
               slug: post.node.fields.slug,
               previous,
