@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import config from '../config'
 import PropTypes from 'prop-types'
 import favicon from '../assets/favicon.ico'
+import { withPrefix } from 'gatsby-link'
 
 class SEO extends Component {
   render() {
@@ -94,11 +95,12 @@ class SEO extends Component {
       meta = [...meta, { property: 'og:type', content: 'article ' }]
     }
     if (summaryImage) {
+      const summaryImagePrex = withPrefix(summaryImage)
       meta = [
         ...meta,
         {
           property: 'og:image',
-          content: summaryImage,
+          content: summaryImagePrex,
         },
         {
           name: 'twitter:card',
@@ -106,7 +108,7 @@ class SEO extends Component {
         },
         {
           name: 'twitter:image',
-          content: summaryImage,
+          content: summaryImagePrex,
         },
       ]
     }
@@ -117,7 +119,7 @@ class SEO extends Component {
         '@type': 'VideoObject',
         name: video.name,
         description: video.description,
-        thumbnailUrl: [config.siteUrl + video.thumbnailUrl],
+        thumbnailUrl: [config.siteUrl + withPrefix(video.thumbnailUrl)],
         uploadDate: video.uploadDate,
         duration: video.duration,
         embedUrl: video.embedUrl,

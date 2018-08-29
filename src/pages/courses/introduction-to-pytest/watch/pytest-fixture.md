@@ -4,7 +4,7 @@ duration: 51
 youtubeId: 1of-iRbwgr0
 order: 3
 description: Short, instructive video about writing a pytest fixture to help dry out repetition code boilerplate.
-thumbnailUrl: /static/thumbnails/pytest-fixture.png
+thumbnailUrl: /thumbnails/pytest-fixture.png
 uploadDate: 2018-08-01
 duration8601: P51S
 embedUrl: https://www.youtube.com/watch?v=1of-iRbwgr0

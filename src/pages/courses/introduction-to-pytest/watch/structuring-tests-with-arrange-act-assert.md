@@ -4,7 +4,7 @@ duration: 55
 youtubeId: sCthIEOaMI8
 order: 2
 description: Short, instructive video about using 'Arrange, Act And Assert' when testing python. See an example test being written that breaks down testing structure line by line.
-thumbnailUrl: /static/thumbnails/structure-tests.png
+thumbnailUrl: /thumbnails/structure-tests.png
 uploadDate: 2018-08-01
 duration8601: P55S
 embedUrl: https://www.youtube.com/watch?v=sCthIEOaMI8
