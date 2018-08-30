@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import config from '../../config'
+import { scale } from '../../utils/typography'
 
 const ListLink = props => (
   <li
@@ -22,6 +23,7 @@ export default ({ children }) => (
         display: `inline`,
         fontWeight: 800,
         fontFamily: 'Montserrat, sans-serif',
+        fontSize: scale(1),
         verticalAlign: 'middle',
       }}
     >
@@ -43,6 +45,7 @@ export default ({ children }) => (
         fontWeight: 500,
         marginBottom: `0`,
         marginLeft: 0,
+        lineHeight: scale(1) * 1.1,
       }}
     >
       <ListLink to="/courses/introduction-to-pytest/">Pytest Course</ListLink>
