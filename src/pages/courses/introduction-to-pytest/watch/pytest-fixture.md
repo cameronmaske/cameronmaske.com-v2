@@ -2,7 +2,7 @@
 title: 'Create A Pytest Fixture'
 duration: 51
 youtubeId: 1of-iRbwgr0
-order: 3
+order: 4
 description: Short, instructive video about writing a pytest fixture to help dry out repetition code boilerplate.
 thumbnailUrl: /thumbnails/pytest-fixture.png
 uploadDate: 2018-08-01

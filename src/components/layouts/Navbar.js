@@ -3,20 +3,26 @@ import Link from 'gatsby-link'
 import config from '../../config'
 
 const ListLink = props => (
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+  <li
+    style={{
+      display: `inline-block`,
+      marginRight: `1rem`,
+      marginBottom: `0`,
+      verticalAlign: 'middle',
+    }}
+  >
     <Link to={props.to}>{props.children}</Link>
   </li>
 )
 
 export default ({ children }) => (
-  <header
-    style={{ marginBottom: `1.5rem`, fontFamily: 'Montserrat, sans-serif' }}
-  >
+  <header style={{ marginBottom: `0`, fontFamily: 'Montserrat, sans-serif' }}>
     <h3
       style={{
         display: `inline`,
         fontWeight: 800,
         fontFamily: 'Montserrat, sans-serif',
+        verticalAlign: 'middle',
       }}
     >
       <Link
@@ -35,6 +41,7 @@ export default ({ children }) => (
         listStyle: `none`,
         float: `right`,
         fontWeight: 500,
+        marginBottom: `0`,
       }}
     >
       <ListLink to="/courses/introduction-to-pytest/">Pytest Course</ListLink>
