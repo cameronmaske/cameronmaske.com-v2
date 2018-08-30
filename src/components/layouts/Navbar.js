@@ -6,7 +6,7 @@ const ListLink = props => (
   <li
     style={{
       display: `inline-block`,
-      marginRight: `1rem`,
+      marginLeft: `1rem`,
       marginBottom: `0`,
       verticalAlign: 'middle',
     }}
@@ -42,6 +42,7 @@ export default ({ children }) => (
         float: `right`,
         fontWeight: 500,
         marginBottom: `0`,
+        marginLeft: 0,
       }}
     >
       <ListLink to="/courses/introduction-to-pytest/">Pytest Course</ListLink>
