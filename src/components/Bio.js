@@ -1,5 +1,7 @@
 import React from 'react'
 import { rhythm } from '../utils/typography'
+import Link from 'gatsby-link'
+import config from '../config'
 
 require('./bio.scss')
 
@@ -92,11 +94,13 @@ class Bio extends React.Component {
     let content
     if (this.props.full) {
       content = (
-        <p>
+        <p style={{ marginBottom: 0 }}>
           Written by <b>Cameron Maske</b>.<br />
-          Are you a Python Developer? I'm working on a course about testing with
-          Python and if you have a spare 5 minutes, I would love to hear about
-          your{' '}
+          Are you a Python Developer? I'm working on a{' '}
+          <Link to={config.courses.pytest.path}>
+            course about testing with Python with pytest
+          </Link>{' '}
+          and if you have a spare 5 minutes, I would love to hear about your{' '}
           <a
             target="_blank"
             rel="noopener"
@@ -105,7 +109,7 @@ class Bio extends React.Component {
             experiences
           </a>
           . <br />
-          Alternativly, want to get in touch? Feel free to drop me an{' '}
+          Want to get in touch? Feel free to drop me an{' '}
           <a target="_blank" rel="noopener" href="mailto:c@meronmaske.com">
             {' '}
             email
@@ -123,10 +127,12 @@ class Bio extends React.Component {
       )
     } else {
       content = (
-        <p>
-          Are you a Python Developer? I'm working on a course about testing with
-          Python with pytest and if you have a spare 5 minutes, I would love to
-          hear about your{' '}
+        <p style={{ marginBottom: 0, textAlign: 'center' }}>
+          Are you a Python Developer? I'm working on a{' '}
+          <Link to={config.courses.pytest.path}>
+            course about testing with pytest
+          </Link>{' '}
+          and if you have a spare 5 minutes, I would love to hear about your{' '}
           <a
             target="_blank"
             rel="noopener"
@@ -142,7 +148,9 @@ class Bio extends React.Component {
       <div
         style={{
           display: 'flex',
-          marginBottom: rhythm(2.5),
+          marginBottom: rhythm(1),
+          alignItems: 'center',
+          width: '100%',
         }}
       >
         <div

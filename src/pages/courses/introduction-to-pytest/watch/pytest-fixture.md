@@ -1,5 +1,5 @@
 ---
-title: 'Creating A Pytest Fixture'
+title: 'Create A Pytest Fixture'
 duration: 51
 youtubeId: 1of-iRbwgr0
 order: 3
