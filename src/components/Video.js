@@ -35,11 +35,14 @@ class Video extends React.Component {
           )}
         </div>
         <div className="col align-self-center">
-          <span
+          <h4
             style={{
               marginTop: 0,
               marginBottom: 0,
               fontSize: rhythm(3 / 4),
+              fontWeight: 'normal',
+              textTransform: 'initial',
+              letterSpacing: 0,
             }}
             className={styles.title}
           >
@@ -48,7 +51,7 @@ class Video extends React.Component {
             ) : (
               <Link to={this.props.slug}>{this.props.title}</Link>
             )}
-          </span>
+          </h4>
         </div>
         <div className="mr-auto">
           {this.props.underConstruction ? (

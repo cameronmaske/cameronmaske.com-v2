@@ -1,12 +1,11 @@
 import React from 'react'
 import Page from '../Page'
-import Subheader from '../Subheader'
-import config from '../../config'
+import Navbar from './Navbar'
 
 export default ({ children }) => {
   return (
     <Page>
-      <Subheader>{config.defaultHeader}</Subheader>
+      <Navbar />
       {children}
     </Page>
   )

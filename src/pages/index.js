@@ -16,7 +16,9 @@ class BlogIndex extends React.Component {
       <div>
         <HomeLayout>
           <SEO title={siteTitle} url={siteUrl} />
-          <Bio />
+          <div style={{ marginTop: rhythm(1) }}>
+            <Bio />
+          </div>
           {posts.map(({ node }) => {
             const title = get(node, 'frontmatter.title') || node.fields.slug
             const intro = get(node, 'frontmatter.intro') || node.excerpt

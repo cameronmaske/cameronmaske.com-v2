@@ -20,11 +20,12 @@ class PytestCourseIndex extends React.Component {
     const totalDuration = publishedVideos.reduce((acc, { node }) => {
       return node.frontmatter.duration + acc
     }, 0)
+    const title = `${course.title} · Free Video Course`
     return (
       <div>
         <Layout>
           <SEO
-            title={course.title}
+            title={title}
             url={url}
             description={course.metaDescription}
             summaryImage={course.summaryImage}

@@ -1,6 +1,8 @@
 import React from 'react'
 import { rhythm } from '../utils/typography'
 
+import style from './page.module.css'
+
 const Page = ({ children }) => {
   return (
     <div
@@ -8,9 +10,10 @@ const Page = ({ children }) => {
         marginLeft: 'auto',
         marginRight: 'auto',
         maxWidth: rhythm(30),
+        // width: '100%',
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
       }}
-      className={'page'}
+      className={'page ' + style.page}
     >
       {children}
     </div>

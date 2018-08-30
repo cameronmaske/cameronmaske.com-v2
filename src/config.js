@@ -11,7 +11,7 @@ module.exports = {
       title: 'Introduction To Pytest',
       description: `This courses of short, instructive videos covers the basics of testing Python with pytest. If you are new to testing, or too pytest, these are designed to give you an overview on testing best practices and pytest's most useful feature for testing bliss.`,
       metaDescription:
-        'A series of short, instructive videos covering the basics of testing Python with pytest. Learn everything from fixtures, to mocking, to debugging.',
+        'A free series of short, instructive videos covering the basics of testing Python with pytest. Learn everything from fixtures, to mocking, to debugging.',
       summaryImage: '/thumbnails/introduction-to-pytest.png',
       path: '/courses/introduction-to-pytest/',
     },
