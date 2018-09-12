@@ -12,9 +12,7 @@ import Page from '../components/Page'
 import config from '../config'
 import BlankLayout from '../components/layouts/BlankLayout'
 import SignUpReminder from '../components/SignUpReminder'
-
-// TODO
-// import VideoTabs from '../components/VideoTabs'
+import renderAst from '../utils/render'
 
 const formatPlaylist = (edges, video) => {
   return edges
@@ -172,10 +170,7 @@ class CourseVideoTemplate extends React.Component {
             <Link to={course.path}>
               <h2 style={{ marginTop: 0 }}>{course.title}</h2>
             </Link>
-            <div
-              class={styles.text}
-              dangerouslySetInnerHTML={{ __html: video.html }}
-            />
+            <div class={styles.text}>{renderAst(video.htmlAst)}</div>
             <SignUpReminder />
           </Page>
         </BlankLayout>
@@ -196,7 +191,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      html
+      htmlAst
       fields {
         slug
       }
