@@ -39,5 +39,5 @@ This is a really clean approach as we can define what we need to do to set up a 
 But what if something does wrong in our test function? Let's simulate that by throwing in a random `Exception` and then we'll run the tests again.
 40
 00:01:47,460 --> 00:01:48,860
-Importantly we can still see that the code after the yield function still executes. This is handy as if something goes wrong in our test function such as an assertion failingthat stops the test from finishing we still run that teardown code
+Importantly we can still see that the code after the yield function still executes. This is handy as if something goes wrong in our test function such as an assertion failingthat stops the test from finishing we still run that teardown code.
 </transcript>

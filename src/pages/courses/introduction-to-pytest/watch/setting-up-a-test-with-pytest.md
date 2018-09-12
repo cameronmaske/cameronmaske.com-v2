@@ -27,5 +27,5 @@ Behind the scenes here pytest is ooking for any files in the directory that begi
 12
 00:00:31,080 --> 00:00:35,840
 Now let's add another test function. This time we are gonna make it purposely fail.
-Then when we run pytest again we can see that it reports that the test fails and it gives us a bit more information to help debug that a bit further
+Then when we run pytest again we can see that it reports that the test fails and it gives us a bit more information to help debug that a bit further.
 </transcript>

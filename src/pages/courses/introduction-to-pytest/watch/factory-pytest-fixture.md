@@ -27,7 +27,7 @@ Let's make the fixture return our nested function. Now we're going to refactor o
 11
 00:00:39,420 --> 00:00:41,840
 Let's run the test to verify that everything works....and they pass
-So what's happening here? When we call our fixture we are reaching to the...nested function inside and passing through the keyword arguments to the `Person` object
+So what's happening here? When we call our fixture we are reaching to the...nested function inside and passing through the keyword arguments to the `Person` object.
 17
 00:00:52,380 --> 00:00:54,560
 In it's current state this isn't too useful but it shows us the basis of this nested function pattern.Let's extend this a bit further and not have it call every person Bob, but instead generate a unique name each time.
@@ -42,5 +42,5 @@ Each time that this runs we want it to increment the count and let's attempt to 
 And we'll pass the `name` to our `Person` object. Let's add one more test to demonstrate what the fixture is doing now. Each time it runs it should generate a unique name as the count is incremented, but we also have the ability to specify a name if needs be.
 33
 00:01:52,280 --> 00:01:55,320
-Let's run the test to verify our `fixture` works as intended....and they pass
+Let's run the test to verify our `fixture` works as intended....and they pass.
 </transcript>
