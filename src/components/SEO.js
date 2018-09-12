@@ -108,7 +108,7 @@ class SEO extends Component {
         },
         {
           name: 'twitter:image',
-          content: summaryImagePrex,
+          content: config.siteUrl + summaryImagePrex,
         },
       ]
     }
