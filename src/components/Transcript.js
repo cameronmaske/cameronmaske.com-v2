@@ -22,7 +22,6 @@ const Transcript = ({ children }) => {
         formatted.push('')
       }
       formatted.push(line)
-      console.log(line)
     }
   }
   const parsed = parse(formatted.join('\n'))
