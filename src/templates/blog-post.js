@@ -8,6 +8,7 @@ import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
 import dayjs from 'dayjs'
 import Layout from '../components/layouts/Layout'
+import renderAst from '../utils/render'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -46,10 +47,7 @@ class BlogPostTemplate extends React.Component {
           >
             {date.format('MMMM DD, YYYY')}
           </p>
-          <div
-            itemProp="articleBody"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <div itemProp="articleBody">{renderAst(post.htmlAst)}</div>
           <hr
             style={{
               marginBottom: rhythm(1),
@@ -107,7 +105,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt
-      html
+      htmlAst
       frontmatter {
         title
         date

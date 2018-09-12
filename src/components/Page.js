@@ -10,7 +10,6 @@ const Page = ({ children }) => {
         marginLeft: 'auto',
         marginRight: 'auto',
         maxWidth: rhythm(30),
-        // width: '100%',
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
       }}
       className={'page ' + style.page}
