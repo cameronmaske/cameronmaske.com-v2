@@ -111,5 +111,6 @@ module.exports = {
         dsn: 'https://792c4269d6534bf483f4cd79cdb14d9c@sentry.io/1280229',
       },
     },
+    `gatsby-plugin-remove-serviceworker`,
   ],
 }

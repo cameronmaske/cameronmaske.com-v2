@@ -4233,7 +4233,7 @@ gatsby-plugin-netlify@^1.0.21:
     lodash "^4.17.4"
     webpack-assets-manifest "^1.0.0"
 
-gatsby-plugin-offline@^1.0.15:
+gatsby-plugin-offline@^1.0.18:
   version "1.0.18"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-1.0.18.tgz#2ee2a24d2f69fcc43a015132f07141b69295318d"
   dependencies:
@@ -4279,6 +4279,10 @@ gatsby-plugin-react-next@^1.0.11:
     core-js "^2.5.1"
     react "^16.0.0"
     react-dom "^16.0.0"
+
+gatsby-plugin-remove-serviceworker@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-serviceworker/-/gatsby-plugin-remove-serviceworker-1.0.0.tgz#9fb433bc8bd766e14e1d3711c4ac6f051e1dff7c"
 
 gatsby-plugin-robots-txt@^1.3.0:
   version "1.3.0"
