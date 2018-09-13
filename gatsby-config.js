@@ -95,8 +95,8 @@ module.exports = {
       resolve: `gatsby-plugin-netlify`,
       options: {
         mergeSecurityHeaders: true,
-        mergeLinkHeaders: false,
-        mergeCachingHeaders: false,
+        mergeLinkHeaders: true,
+        mergeCachingHeaders: true,
       },
     },
     `gatsby-plugin-purify-css`,
