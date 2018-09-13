@@ -95,10 +95,22 @@ module.exports = {
       resolve: `gatsby-plugin-netlify`,
       options: {
         mergeSecurityHeaders: true,
-        mergeLinkHeaders: true,
-        mergeCachingHeaders: true,
+        mergeLinkHeaders: false,
+        mergeCachingHeaders: false,
+        headers: {
+          '/*.js': [
+            'Cache-Control: public, max-age=0, must-revalidate',
+            'Content-Type: text/javascript',
+          ],
+        },
       },
     },
     `gatsby-plugin-purify-css`,
+    {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        dsn: 'https://792c4269d6534bf483f4cd79cdb14d9c@sentry.io/1280229',
+      },
+    },
   ],
 }
