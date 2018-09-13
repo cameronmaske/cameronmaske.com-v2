@@ -4298,6 +4298,12 @@ gatsby-plugin-sass@^1.0.26:
     sass-loader "^4.1.1"
     webpack "^1.13.3"
 
+gatsby-plugin-sentry@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sentry/-/gatsby-plugin-sentry-0.1.0.tgz#5bbf0ccae2d22e360c1ef68f8a8f8d41a7cda128"
+  dependencies:
+    raven-js latest
+
 gatsby-plugin-sharp@^1.6.42, gatsby-plugin-sharp@^1.6.48:
   version "1.6.48"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-1.6.48.tgz#9bb7515da9c7753b3065c51b2d35a0de5b9aa1f5"
@@ -9078,6 +9084,10 @@ randomfill@^1.0.3:
 range-parser@1.2.0, range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
+
+raven-js@latest:
+  version "3.27.0"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.27.0.tgz#9f47c03e17933ce756e189f3669d49c441c1ba6e"
 
 raw-body@2.3.2:
   version "2.3.2"

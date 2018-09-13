@@ -100,5 +100,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-purify-css`,
+    {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        dsn: 'https://792c4269d6534bf483f4cd79cdb14d9c@sentry.io/1280229',
+      },
+    },
   ],
 }
