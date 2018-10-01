@@ -27,6 +27,10 @@ class SEO extends Component {
     } = this.props
 
     let meta = [
+      { 
+        name: 'google-site-verification', 
+        content: 'X2desFrrpp7_s7d8WVxXRTjV9ESVPQm3lIgNDHIcGpM' 
+      },
       {
         name: 'twitter:site',
         content: twitter,
